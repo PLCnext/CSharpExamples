@@ -25,8 +25,8 @@ The [`CSharpExamples`](https://github.com/PLCnext/CSharpExamples) repository is 
 |[08](PLCnext_CSharpExamples/08_FileHandling)| [File Handling](PLCnext_CSharpExamples/08_FileHandling/FileHandling.md) | Use "File" in namespace System.IO ([WriteFile.cs](PLCnext_CSharpExamples/08_FileHandling/WriteFile.cs), [ReadFile.cs](PLCnext_CSharpExamples/08_FileHandling/ReadFile.cs))
 |[09](PLCnext_CSharpExamples/09_DateTime/)| [DateTime](PLCnext_CSharpExamples/09_DateTime/DateTime.md) | Getting UTC ticks and conversion into a string. ([FBWithDateTime.cs](PLCnext_CSharpExamples/09_DateTime/FBWithDateTime.cs))
 |[10](PLCnext_CSharpExamples/10_GarbageCollection/)| [Garbage Collection](PLCnext_CSharpExamples/10_GarbageCollection/GarbageCollection.md) | Shows how to modify garbage collection settings. ([GarbageCollection.cs](PLCnext_CSharpExamples/10_GarbageCollection/GarbageCollection.cs))
-|[11](PLCnext_CSharpExamples/11_InvisibleParameter/)| [Invisible Parameter](PLCnext_CSharpExamples/11_InvisibleParameter/InvisibleParameter.md) | Shows how to make functionblock parameter invisible for the PLCnext Engineer. ([FBWithInvisibleParameter.cs](PLCnext_CSharpExamples/11_InvisibleParameter/FBWithInvisibleParameter.cs))
-|[12](PLCnext_CSharpExamples/12_MiscAttribues/)| [MiscAttributes](PLCnext_CSharpExamples/12_MiscAttribues/MiscAttributes.md) | Making data visible in OPC UA and when to use explicit IEC data type definition. ([MiscAttributes](PLCnext_CSharpExamples/12_MiscAttribues/MiscAttributes.cs))
+|[99](PLCnext_CSharpExamples/99_MiscAttribues/)| [MiscAttributes](PLCnext_CSharpExamples/99_MiscAttribues/MiscAttributes.md) | Making data visible in OPC UA 
+and when to use explicit IEC data type definition. ([MiscAttributes](PLCnext_CSharpExamples/99_MiscAttribues/MiscAttributes.cs))
 
 ## Getting Started
 

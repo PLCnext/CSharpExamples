@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4AE7C157-212D-49DA-9C85-A49D9AADCBAF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PLCnext_CSharpExamples</RootNamespace>
+    <AssemblyName>PLCnext_CSharpExamples</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>eCLR3.2</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <!-- This entry fixes the issue of build warning that System.Core reference could not be added, which is added implicitly by the build system. -->
+    <AddAdditionalExplicitAssemblyReferences>false</AddAdditionalExplicitAssemblyReferences>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="01_Basics\basics.cs" />
+    <Compile Include="02_Any\FB1WithAny.cs" />
+    <Compile Include="02_Any\FB2WithAny.cs" />
+    <Compile Include="02_Any\FunWithAny.cs" />
+    <Compile Include="03_UserStruct\FBWithUserStruct.cs" />
+    <Compile Include="04_UserArray\FBWithUserArray.cs" />
+    <Compile Include="05_IECString\FBWithString.cs" />
+    <Compile Include="06_ComplexDataTypes\FUWithComplexDataType.cs" />
+    <Compile Include="07_Methods\FBWithMethods.cs" />
+    <Compile Include="08_FileHandling\ReadFile.cs" />
+    <Compile Include="08_FileHandling\WriteFile.cs" />
+    <Compile Include="09_DateTime\FBWithDateTime.cs" />
+    <Compile Include="10_GarbageCollection\GarbageCollection.cs" />
+    <Compile Include="99_MiscAttribues\MiscAttributes.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="eclrlib" />
+    <Reference Include="pcoslib" />
+    <Reference Include="IecEngineering" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildExtensionsPath)\eCLR\eCLR-Programming-Reference.chm">
+      <Link>Documentation\eCLR-Programming-Reference.chm</Link>
+    </None>
+    <None Include="01_Basics\Counter.md" />
+    <None Include="02_Any\Any.md" />
+    <None Include="03_UserStruct\UserStruct.md" />
+    <None Include="04_UserArray\UserArray.md" />
+    <None Include="05_IECString\IECString.md" />
+    <None Include="06_ComplexDataTypes\ComplexDataTypes.md" />
+    <None Include="07_Methods\Methods.md" />
+    <None Include="08_FileHandling\FileHandling.md" />
+    <None Include="09_DateTime\DateTime.md" />
+    <None Include="10_GarbageCollection\GarbageCollection.md" />
+    <None Include="99_MiscAttribues\MiscAttributes.md" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>  
+  -->
+  <!--This Build step creates a Firmware Library for PC Worx Engineer-->
+  <UsingTask TaskName="Ade.Eclr.BuildTools.EngineeringLibraryBuilderTask" AssemblyFile="$(MSBuildExtensionsPath)\eCLR\Ade.Eclr.BuildTools.dll" />
+  <Target Name="AfterBuild">
+    <EngineeringLibraryBuilderTask FirmwareLibrary="$(OutDir)$(TargetFileName)" ProjectGuid="$(ProjectGuid)" Configuration="$(Configuration)" FrameworkPathOverride="$(FrameworkPathOverride)" References="@(Reference)" ProjectReferences="@(_ResolvedProjectReferencePaths)" />
+  </Target>
+</Project>

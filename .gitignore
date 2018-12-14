@@ -1,0 +1,4 @@
+PLCnext_CSharpExamples/bin/*
+PLCnext_CSharpExamples/obj/*
+.vs/*
+.vscode/*

@@ -2,8 +2,8 @@
 [Program.cs](Program.cs)
 
 Minimal Verions Required: 
-[![PLCnext Engineer](https://img.shields.io/badge/PLCnext_Engineer-2019.3-blue.svg)](https://www.plcnext-community.net)
-[![PLCnext Engineer](https://img.shields.io/badge/PLCnext_Firmware-2019.0_LTS-blue.svg)](https://www.plcnext-community.net)
+[![PLCnext Engineer](https://img.shields.io/badge/PLCnext_Engineer-2019.3-blue.svg)](http://www.phoenixcontact.com/qr/1046008/softw)
+[![PLCnext Engineer](https://img.shields.io/badge/PLCnext_Firmware-2019.0_LTS-blue.svg)](http://www.phoenixcontact.net/qr/2404267/firmware)
 
 The Program.cs is a basic template to write realtime C# programs for PLCnext Technology.
 

@@ -32,6 +32,7 @@ namespace ExampleLib
         {
             public const int lowerBound = 0;
             public const int upperBound = 9;
+            // the size must be changed to the correct size of your elements times the amount of elements
             public const int size = (upperBound - lowerBound + 1) * sizeof(int);
         }
 

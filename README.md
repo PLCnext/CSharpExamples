@@ -29,7 +29,7 @@ The [`CSharpExamples`](https://github.com/PLCnext/CSharpExamples) repository is 
 
 ## Getting Started
 
-Find all information how to start coding C# for PLCnext Technology in our [Community](https://www.plcnext-community.net/index.php?option=com_content&view=category&layout=blog&id=74&Itemid=350&lang=en) or watch the [Youtube Playlist](https://www.youtube.com/playlist?list=PLXpIBdAgtoRKO3lWQAQweje1oC7JwJcnM) on your [Technical Support Channel](https://www.youtube.com/c/PhoenixContactTechnicalSupport)
+Find all information how to start coding C# for PLCnext Technology in our [Community](https://www.plcnext-community.net/index.php?option=com_content&view=category&layout=blog&id=74&Itemid=350&lang=en) or watch the [Youtube Playlist](https://www.youtube.com/playlist?list=PLXpIBdAgtoRKO3lWQAQweje1oC7JwJcnM) on our [Technical Support Channel](https://www.youtube.com/c/PhoenixContactTechnicalSupport)
 
 ## Contributing
 
@@ -38,7 +38,7 @@ Furthermore you can help us by discussing issues and let us know where you have 
 
 ## Feedback
 
-Provide information how feedback can be given e.g.:
+You can give feedback to this project in different ways:
 
 * Ask a question in our [Forum](https://www.plcnext-community.net/index.php?option=com_easydiscuss&view=categories&Itemid=221&lang=en).
 * Request a new feature on [GitHub](CONTRIBUTING.md).

@@ -54,6 +54,8 @@
     <Compile Include="08_FileHandling\WriteFile.cs" />
     <Compile Include="09_DateTime\FBWithDateTime.cs" />
     <Compile Include="10_GarbageCollection\GarbageCollection.cs" />
+    <Compile Include="11_Programs\Program.cs" />
+    <Compile Include="12_Threads\Threads.cs" />
     <Compile Include="99_MiscAttribues\MiscAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils.cs" />
@@ -67,7 +69,7 @@
     <None Include="$(MSBuildExtensionsPath)\eCLR\eCLR-Programming-Reference.chm">
       <Link>Documentation\eCLR-Programming-Reference.chm</Link>
     </None>
-    <None Include="01_Basics\Counter.md" />
+    <None Include="01_Basics\Basics.md" />
     <None Include="02_Any\Any.md" />
     <None Include="03_UserStruct\UserStruct.md" />
     <None Include="04_UserArray\UserArray.md" />
@@ -77,6 +79,8 @@
     <None Include="08_FileHandling\FileHandling.md" />
     <None Include="09_DateTime\DateTime.md" />
     <None Include="10_GarbageCollection\GarbageCollection.md" />
+    <None Include="11_Programs\Programs.md" />
+    <None Include="12_Threads\Threads.md" />
     <None Include="99_MiscAttribues\MiscAttributes.md" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

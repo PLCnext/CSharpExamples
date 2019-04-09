@@ -1,7 +1,7 @@
 # Basics
-[Basics.cs](Basics.cs)
+[basics.cs](basics.cs)
 
-The Counter.cs shows the basic attributes to make something visible to the PLCnext Engineer.
+The basic.cs shows the basic attributes to make something visible to the PLCnext Engineer.
 
 Firstly, use the `[Function]` or `[FunctionBlock]` attribute above classes that are IEC FUs or FBs.
 The FU/FB will be given the same name as the class.

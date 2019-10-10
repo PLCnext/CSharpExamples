@@ -40,7 +40,7 @@ Furthermore you can help us by discussing issues and let us know where you have 
 
 ## Feedback
 
-Provide information how feedback can be given e.g.:
+You can give feedback to this project in different ways:
 
 * Ask a question in our [Forum](https://www.plcnext-community.net/index.php?option=com_easydiscuss&view=categories&Itemid=221&lang=en).
 * Request a new feature on [GitHub](CONTRIBUTING.md).

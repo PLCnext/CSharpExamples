@@ -1,4 +1,5 @@
 ﻿# Programs
+
 [Program.cs](Program.cs)
 
 Minimal Verions Required: 
@@ -11,9 +12,9 @@ Firstly, use the `[Program]` attribute above classes that shall be an program.
 The program will be given the same name as the class.
 
 The next attributes are inside a class. `[Global, OutputPort]`, `[Global, InputPort]` are used to define the port variables of your program.
-The ports will be given the same names as the corresponding fields. 
+The ports will be given the same names as the corresponding fields.
 
-The last two attributes in this example are `[Initialization]` and `[Execution]`. 
+The last two attributes in this example are `[Initialization]` and `[Execution]`.
 The Initialization method will run once when your controller starts. The method marked with the Execution attribute will be called whenever the program is called.
 The method names do not matter for these two attributes.
 
@@ -26,7 +27,7 @@ public class Sample
 
     [Global, InputPort]
     public int YY;
-		
+
     [Initialization]
     public void __Init()
     {
@@ -35,6 +36,6 @@ public class Sample
     [Execution]
     public void __Process()
     {
-	}
+    }
 }
 ```

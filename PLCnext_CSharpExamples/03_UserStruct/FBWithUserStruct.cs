@@ -63,9 +63,9 @@ namespace ExampleLib
     [FunctionBlock]
     public class FB_with_user_struct2
     {
-        [Input]
+        [InOut]
         unsafe public Position* NEW_POSITION;
-        [Output]
+        [InOut]
         public Position CURRENT_POSITION;
 
         [Initialization]

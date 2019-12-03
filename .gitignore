@@ -1,4 +1,5 @@
 PLCnext_CSharpExamples/bin/*
+PLCnext_CSharpExamples/plcncli.bat
 PLCnext_CSharpExamples/obj/*
 .vs/*
 .vscode/*

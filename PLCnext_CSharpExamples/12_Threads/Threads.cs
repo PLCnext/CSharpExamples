@@ -37,23 +37,32 @@ namespace ExampleLib
 
                 switch (setPrio)
                 {
-                    case 0:
+                    case 100:
                         StaticCaller.Priority = ThreadPriority.Lowest;
+                        StaticCaller.Name = "cs_lowest";
                         break;
-                    case 1:
+                    case 101:
                         StaticCaller.Priority = ThreadPriority.BelowNormal;
+                        StaticCaller.Name = "cs_bnormal";
                         break;
-                    case 2:
+                    case 102:
                         StaticCaller.Priority = ThreadPriority.Normal;
+                        StaticCaller.Name = "cs_normal";
                         break;
-                    case 3:
+                    case 103:
                         StaticCaller.Priority = ThreadPriority.AboveNormal;
+                        StaticCaller.Name = "cs_anormal";
                         break;
-                    case 4:
+                    case 104:
                         StaticCaller.Priority = ThreadPriority.Highest;
+                        StaticCaller.Name = "cs_higest";
                         break;
                     default:
-                        StaticCaller.Priority = ThreadPriority.Normal;
+                        // It is possible to cast integers from 0-99 as 
+                        // ThreadPriority. Like in C++ its not recommended
+                        // to run threads in higher priority.
+                        StaticCaller.Priority = (ThreadPriority)setPrio;
+                        StaticCaller.Name = "cs_prio" + setPrio;
                         break;
                 }
 

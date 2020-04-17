@@ -8,7 +8,7 @@ Minimal Verions Required:
 
 The Program.cs is a basic template to write realtime C# programs for PLCnext Technology.
 
-Firstly, use the `[Program]` attribute above classes that shall be an program.
+Firstly, use the `[Program]` attribute above classes that shall be a program.
 The program will be given the same name as the class.
 
 The next attributes are inside a class. `[Global, OutputPort]`, `[Global, InputPort]` are used to define the port variables of your program.

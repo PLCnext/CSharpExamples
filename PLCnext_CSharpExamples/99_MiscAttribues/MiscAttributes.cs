@@ -23,18 +23,18 @@ namespace ExampleLib
     public class MiscExamples
     {
         
-    // Fields that are marked with the [OPC] attribute are made visible by the OPC server when activated.
-    // Allowed are Input and Output parameter, but not InOut parameter.
+        // Fields that are marked with the [OPC] attribute are made visible by the OPC server when activated.
+        // Allowed are Input and Output parameter, but not InOut parameter.
         [Input, OPC]
         public short IN1;
         [Input]
         public short IN2;
         [Output, DataType("WORD"), OPC]
         public ushort OUT;
-    // Fields of a complex data type can be marked with the OPC attribute, too. 
+        // Fields of a complex data type can be marked with the OPC attribute, too. 
         [Output, OPC]
         public BytePair BYTES;
-    // Also private data can be made visible to the OPC, see the "Sum" field.
+        // Also private data can be made visible to the OPC, see the "Sum" field.
         [OPC]
         private short Sum;
 

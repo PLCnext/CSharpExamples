@@ -59,14 +59,14 @@ namespace ExampleLib
         }
     }
 
-    // Input and InOut parameter can be passed by reference. This saves memory and CPU time for copying values for large Arrays and structs.
+    // Pass 'Input' and InOut parameter by reference as an InOut parameter. This saves memory and CPU time for copying values for large Arrays and structs.
     [FunctionBlock]
     public class FB_with_user_struct2
     {
         [InOut]
         unsafe public Position* NEW_POSITION;
         [InOut]
-        public Position CURRENT_POSITION;
+        unsafe public Position* CURRENT_POSITION;
 
         [Initialization]
         public void __Init()
@@ -76,21 +76,21 @@ namespace ExampleLib
         [Execution]
         unsafe public void __Process()
         {
-            if ((CURRENT_POSITION).x < (*NEW_POSITION).x)
+            if ((*CURRENT_POSITION).x < (*NEW_POSITION).x)
             {
-                (CURRENT_POSITION).x++;
+                (*CURRENT_POSITION).x++;
             }
-            else if ((CURRENT_POSITION).x > (*NEW_POSITION).x)
+            else if ((*CURRENT_POSITION).x > (*NEW_POSITION).x)
             {
-                (CURRENT_POSITION).x--;
+                (*CURRENT_POSITION).x--;
             }
-            if ((CURRENT_POSITION).y < (*NEW_POSITION).y)
+            if ((*CURRENT_POSITION).y < (*NEW_POSITION).y)
             {
-                (CURRENT_POSITION).y++;
+                (*CURRENT_POSITION).y++;
             }
-            else if ((CURRENT_POSITION).y > (*NEW_POSITION).y)
+            else if ((*CURRENT_POSITION).y > (*NEW_POSITION).y)
             {
-                (CURRENT_POSITION).y--;
+                (*CURRENT_POSITION).y--;
             }
         }
     }

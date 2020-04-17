@@ -6,7 +6,7 @@
 #endregion
 
 //uncomment the next row to change the signature of the function block (adding a second input)
-//#define AddPArameter
+//#define AddParameter
 
 using System;
 using System.Iec61131Lib;
@@ -27,7 +27,7 @@ namespace ExampleLib
         [Input]
         public bool xActivate;
 
-#if AddPArameter
+#if AddParameter
         //adding an addinal input
         [Input]
         public bool xDOWN;
@@ -43,7 +43,7 @@ namespace ExampleLib
         [Execution]
         public void __Process()
         {
-#if !AddPArameter
+#if !AddParameter
             //counter counts up
             if (!xActivate)
             {

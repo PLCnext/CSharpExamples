@@ -94,4 +94,9 @@
   <Target Name="AfterBuild">
     <EngineeringLibraryBuilderTask FirmwareLibrary="$(OutDir)$(TargetFileName)" ProjectGuid="$(ProjectGuid)" Configuration="$(Configuration)" FrameworkPathOverride="$(FrameworkPathOverride)" References="@(Reference)" ProjectReferences="@(_ResolvedProjectReferencePaths)" />
   </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties Image="..\..\Users\Public\Documents\PLCnext Engineer\Binaries\CSharpExampleProject@binary\RES_829976591E98446682C292813E058D7E\RES_829976591E98446682C292813E058D7E.img" IP="192.168.1.10:41101" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>

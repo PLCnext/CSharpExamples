@@ -17,7 +17,7 @@ namespace ExampleLib
 {
     /// <summary>
     /// The example FB limits a value into a defined range
-    /// and retuns the result as Any
+    /// and returns the result as Any
     /// </summary>
     [FunctionBlock]
     public class FB2_with_ANY

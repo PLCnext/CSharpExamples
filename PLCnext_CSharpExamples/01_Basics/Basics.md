@@ -23,9 +23,9 @@ public class Sample
     [Output]
     public int YY;
 
-	[InOut]
+    [InOut]
     public int XXYY;
-		
+        
     [Initialization]
     public void __Init()
     {
@@ -34,6 +34,6 @@ public class Sample
     [Execution]
     public void __Process()
     {
-	}
+    }
 }
 ```

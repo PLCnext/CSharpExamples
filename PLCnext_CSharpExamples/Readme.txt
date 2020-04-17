@@ -59,6 +59,43 @@ a '+' must have the optional attribute "DataType" for an unambiguous assignment.
 |    ANY_ELEMENTARY | System.Iec61131Lib.Any         | ------ |     +     |
 +-------------------+--------------------------------+--------+-----------+
 
+Optional files for PLCnext Engineer Libraries
+=============================================
+
+Library Description
+-------------------
+The template contains the file "LibraryDescription.xml". 
+This file contains additional description for the POUs and their formal
+parameters which are shown as tool tips. 
+It enables also the structuring of POUs into groups.
+For the description of POUs use the elements "ProgramOrganizationUnit".
+For structuring the element "ToolboxCategory" is used which must be referred in 
+the "ProgramOrganizationUnit".
+
+Localization
+For supporting different languages the description file can be localized. For 
+each language a separate file has to be created and added into the folder 
+"ProjectItems". The file name must have the format 
+LibraryDescription[.<culture>].xml where <culture> represents the culture, e.g. 
+en, en-US, de, fr, zh-CN.
+As default the 'neutral' file without the culture is used 
+LibraryDescription.xml.
+
+Help Files
+----------
+Libraries can include help files that contain a help page for each POU.
+The format of the help file name is <library name>[_culture]_FBFun.chm
+where <culture> represents the culture, e.g. en, en-US, de, fr, zh-CN.
+The neutral help without the culture is used when no help file matches the 
+current language of the engineering tool.
+The engineering tool searches for the library function and function blocks 
+through their names. If the help is generated with the "HTML Help Workshop" 
+then these names must be defined as keys in the *.hhk file.
+Insert help files into the project's folder "Help" and set the property 
+"Build Action" to "Content".
+Please note: The help file must be copied physically into the project's "Help" 
+directory. Do not insert it as link.
+
 Debugging the Library
 =====================
 

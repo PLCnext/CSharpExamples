@@ -14,7 +14,7 @@ Following example shows how to calculate the size of a struct as array elements:
 |--- | --- | ---|
 | index | int | 4 Byte |
 | value | double | 8 Byte |
-| txt	| IecString80 | 86 Byte ([../05_IECString/IECString.md](calculation)) |
+| txt	| IecString80 | 86 Byte ([calculation](../05_IECString/IECString.md)) |
 
 + 6 Byte padding (8 Byte aligment due to the double data type)
 Struct size = 104

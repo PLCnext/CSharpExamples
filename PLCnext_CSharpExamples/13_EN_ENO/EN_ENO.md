@@ -12,9 +12,15 @@ In IEC 61131-3 the variables EN and ENO are defined as following:
 If the EN parameter is FALSE, the function body is skipped and ENO is set to FALSE.
 If the EN parameter is TRUE, the function body is executed. If the function executes without error, the ENO parameter is set to TRUE. If there is an error in the execution of the function, the ENO parameter is set to FALSE.
 
-To use EN/ENO with Functions and FunctionBlocks in C# the developer has to implement the behavior.
+## EN/ENO in FunctionBlocks
+
+To use EN/ENO with FunctionBlocks in C#, the developer has to implement the behavior.
 To fullfill the standard, the following rules have to be considered.
 
-- **EN** has to be the first defined input in capital letters
-- **ENO** has to be the first defined output in capital letters
+- **EN** has to be the first defined input and be in capital letters
+- **ENO** has to be the first defined output and be in capital letters
 - On error return (ENO == false) , the outputs must be well defined
+
+## EN/ENO in Functions
+
+The C# code has not to define the EN/ENO parameters. If they are not available, they cannot be used inside the function like in the FB but the whole EN/ENO functionality is handled and added by the IEC compiler itself.  If ENO shall be set to FALSE by the function, it must define manually inside the FU.

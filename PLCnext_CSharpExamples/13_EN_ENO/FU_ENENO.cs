@@ -15,18 +15,61 @@ using Iec61131.Engineering.Prototypes.Common;
 
 namespace ExampleLib
 {
-    [Function, DataType("ANY_NUM")]
-    public static class FU_ENENO
+    /// <summary>
+    /// Default Function with EN/ENO handled by the compiler
+    /// </summary>
+    [Function]
+    public static class FU_wo_ENENO
     {
-
         [Execution]
-        public static void __Process(
-            [Output] ref Any Fun_with_ANY,
-            [Input, DataType("ANY_NUM")] ref Any VALUE,
-            [Input, DataType("ANY_NUM")] ref Any MIN,
-            [Input, DataType("ANY_NUM")] ref Any MAX)
+        // The return value datatype can be either 
+        // the one of your function Output or void
+        public static short __Process(
+            // If the data type is void, the Output must be set explicitly
+            // with the class name (function name)
+            // [Output] short FU_with_ENENO,
+            [Input] short IN1,
+            [Input, DataType("WORD")] ushort IN2)
         {
-            
+            // Make shure the return value is well defined
+            short Function1 = 0;
+
+            //
+            // TODO: Write the logic of the function
+            //
+
+            // Return the result
+            return Function1;
         }
     }
+    
+    /// <summary>
+    /// Function with ENO handled inside the function
+    /// </summary>
+    [Function]
+    public static class FU_with_ENENO
+    {
+        [Execution]
+        // Set the type of the return value to bool
+        public static bool __Process(
+            // Add the class name (function name) as single Output parameter
+            [Output] short FU_with_ENENO,
+            [Input] short IN1,
+            [Input, DataType("WORD")] ushort IN2)
+        {
+            // Make shure the Output value is well defined
+            FU_with_ENENO = 0;
+
+            //
+            // TODO: Write the logic of the function
+            // and implement the condition 
+            // for changing ENO to false e.g.
+            if(IN1 < 0)
+                return false;
+
+            // Return ENO
+            return true;
+        }
+    }
+
 }

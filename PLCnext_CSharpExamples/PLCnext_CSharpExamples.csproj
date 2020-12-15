@@ -56,14 +56,11 @@
     <Compile Include="10_GarbageCollection\GarbageCollection.cs" />
     <Compile Include="11_Programs\Program.cs" />
     <Compile Include="12_Threads\Threads.cs" />
+    <Compile Include="13_EN_ENO\FB_ENENO.cs" />
+    <Compile Include="13_EN_ENO\FU_ENENO.cs" />
     <Compile Include="99_MiscAttribues\MiscAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="eclrlib" />
-    <Reference Include="pcoslib" />
-    <Reference Include="IecEngineering" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildExtensionsPath)\eCLR\eCLR-Programming-Reference.chm">
@@ -81,7 +78,15 @@
     <None Include="10_GarbageCollection\GarbageCollection.md" />
     <None Include="11_Programs\Programs.md" />
     <None Include="12_Threads\Threads.md" />
+    <None Include="13_EN_ENO\EN_ENO.md" />
     <None Include="99_MiscAttribues\MiscAttributes.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="IecEngineering" />
+    <Reference Include="pcoslib" />
+    <Reference Include="system">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\eCLR3.2\system.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

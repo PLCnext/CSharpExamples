@@ -14,7 +14,7 @@ If the EN parameter is TRUE, the function body is executed. If the function exec
 
 ## EN/ENO in FunctionBlocks
 
-To use EN/ENO with FunctionBlocks in C#, the developer has to implement the behavior.
+To use EN/ENO with FunctionBlocks in C#, the developer has to implement the behavior. The developers FB code must check the incomming EN and set ENO accodingly, as well as all outputs to default values (excluding arrays and structs).
 To fullfill the standard, the following rules have to be considered.
 
 - **EN** has to be the first defined input and be in capital letters
@@ -23,4 +23,4 @@ To fullfill the standard, the following rules have to be considered.
 
 ## EN/ENO in Functions
 
-The C# code has not to define the EN/ENO parameters. If they are not available, they cannot be used inside the function like in the FB but the whole EN/ENO functionality is handled and added by the IEC compiler itself.  If ENO shall be set to FALSE by the function, it must define manually inside the FU.
+The C# code has not to define the EN/ENO parameters. If they are not available, they cannot be used inside the function like in the FB but the whole EN/ENO functionality is handled and added by the IEC compiler itself.  If ENO shall be set to FALSE by the function, the prototype must be defined with a bool return value and the function result as first parameter marked with an [Output] attribute.

@@ -27,9 +27,8 @@ namespace ExampleLib
         [Output]
         public IecString80 DATA1;
 
-        [InOut]
+        [InOut, DataType("ANY")]
         public Any DATA2;
-
 
         private bool ExecutePreviousState;  // used for rising edge detection
 
@@ -43,9 +42,9 @@ namespace ExampleLib
         }
 
         [Execution]
-        public unsafe void __Process()
+        public void __Process()
         {
-            if (EXECUTE && !ExecutePreviousState)
+            if (EXECUTE && (EXECUTE != ExecutePreviousState))
             {
                 try
                 {

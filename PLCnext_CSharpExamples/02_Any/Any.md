@@ -3,10 +3,14 @@
 
 FunWithAny.cs is an example how to use the IEC 61131-3 `ANY` parameter in a C# function.  
 First we have the partly optional attribute `DataType()`.
-This attribute is only necessary if you have an IEC type as in/output, which does not have a unique mapping to a C# data type.
-For example, `uint` in C# is `UDINT` in IEC. But if you want an input to be `DWORD`, which is also `uint` in C#, the `DataType("DWORD")` attribute is needed.
+This attribute is only necessary if you have an IEC type as in/output,
+which does not have a unique mapping to a C# data type.
+For example, `uint` in C# is `UDINT` in IEC.
+But if you want an input to be of data type  `DWORD`, which is `uint` in C#,
+the `DataType("DWORD")` attribute is needed.
 For `ANY` parameters, the `DataType()` attribute must always be used.
-For more information on data type mapping, read the [Readme.txt](../Readme.txt), available in every Visual Studio eCLR project.
+For more information on data type mapping, read the [Readme.txt](../Readme.txt),
+available in every Visual Studio eCLR project.
 ```cs
 [Function, DataType("ANY_NUM")]
 public static class Fun_with_ANY

@@ -41,8 +41,8 @@ a '+' must have the optional attribute "DataType" for an unambiguous assignment.
 |    TIME           | System.UInt32                  | uint   |     +     |
 |    LTIME          | System.Int64                   | long   |     +     |
 |    LDATE          | System.Int64                   | long   |     +     |
-|    LTOD           | System.Int64                   | long   |     +     |
-|    LDT            | System.Int64                   | long   |     +     |
+|    LTIME_OF_DAY   | System.Int64                   | long   |     +     |
+|    LDATE_AND_TIME | System.Int64                   | long   |     +     |
 |    BYTE           | System.Byte                    | byte   |     +     |
 |    WORD           | System.UInt16                  | ushort |     +     |
 |    DWORD          | System.UInt32                  | uint   |     +     |

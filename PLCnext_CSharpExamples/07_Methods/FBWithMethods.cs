@@ -18,7 +18,6 @@ namespace ExampleLib
     [FunctionBlock]
     public class FB_with_methods
     {
-
         //reuse of the struct in FBWithUserStruct.cs
         Position CurrentPosition;
 
@@ -31,7 +30,7 @@ namespace ExampleLib
         public void __Process()
         {
         }
-        //the attribute "User" indicates a method for the PCWorx Engineer
+        //the attribute "User" indicates a method for the PLCnext Engineer
         //and make it available for the user in IEC code
         [User]
         public void SetX(int x)
@@ -61,10 +60,12 @@ namespace ExampleLib
         }
 
         // NOT SUPPORTED: Complex data types as return value
+        #pragma warning disable CSADD022
         [User]
         public Position NotSupported_GetPositionReturningTheStructure()
         {
             return CurrentPosition;
         }
+        #pragma warning restore CSADD022
     }
 }

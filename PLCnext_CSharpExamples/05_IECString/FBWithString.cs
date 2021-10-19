@@ -25,23 +25,21 @@ namespace ExampleLib
     {
         // Fields
         [FieldOffset(0)]
-        public IecStringEx s;
+        public IecStringEx s;  // This member must have the name 's' because the name is evaluated by PLCnext Engineer!
 
         // Methods
-        //ctor is needed to set the maximum size and called in the initialization
-        public void ctor()
-        {
-            this.s.maximumLength = 200;
-        }
+        // Init is needed to set the maximum size and called in the initialization
 
-        public void rctor()
+        public void Init()
         {
-            this.s.maximumLength = 200;
+            s.Empty();
+            s.maximumLength = 200;
         }
     }
 
+    // Input and InOut parameter are passed by value
     [FunctionBlock]
-    public class FB_with_string
+    public class FB_with_string1
     {
         [Input]
         public IecString80 VALUE;
@@ -58,9 +56,9 @@ namespace ExampleLib
             // Call ctor of strings in order to set the maximum size
             VALUE.ctor();
             RESULT1.ctor();
-            RESULT2.ctor();
+            RESULT2.Init();
         }
-    
+
         [Execution]
         public void __Process()
         {
@@ -85,7 +83,7 @@ namespace ExampleLib
             }
         }
     }
-    // Input and InOut parameter can be passed by reference. This saves memory and CPU time for copying values for large Arrays and structs.
+    // Input and InOut parameter can be passed by reference. This saves memory and CPU time for copying values for large arrays and structures.
     [FunctionBlock]
     public class FB_with_string2
     {
@@ -110,7 +108,7 @@ namespace ExampleLib
         {
             unsafe
             {
-                // Assign one IecString to another
+                // Assign one IecString to another (assign string VALUE to string RESULT1)
                 IecStringEx.Copy(ref *VALUE, ref *RESULT1);
 
                 // assign .Net String to an IecString

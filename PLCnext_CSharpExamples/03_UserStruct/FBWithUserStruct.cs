@@ -15,17 +15,18 @@ using Iec61131.Engineering.Prototypes.Common;
 
 namespace ExampleLib
 {
-    //The attribute "Structure" is necessary to make the struct visible in the PCWorx Engineer 
+    // The attribute "Structure" is necessary to make the struct visible in the PCWorx Engineer 
     [Structure]
     public struct Position
     {
-        //the fields must be public as well as the struct itself
+        // the fields must be public as well as the struct itself
         public int x;
         public int y;
     }
 
+    // Pass 'Input' and 'Output' parameter by value.
     [FunctionBlock]
-    public class FB_with_user_struct
+    public class FB_with_user_struct1
     {
         [Input]
         public Position NEW_POSITION;
@@ -59,7 +60,7 @@ namespace ExampleLib
         }
     }
 
-    // Pass 'Input' and InOut parameter by reference as an InOut parameter. This saves memory and CPU time for copying values for large Arrays and structs.
+    // Pass parameters by reference as an 'InOut' parameter. This saves memory and CPU time for copying values for large arrays and structures.
     [FunctionBlock]
     public class FB_with_user_struct2
     {

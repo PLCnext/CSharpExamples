@@ -20,7 +20,7 @@ namespace ExampleLib
     /// and returns the result as Any
     /// </summary>
     [FunctionBlock]
-    public class FB2_with_ANY
+    public class FB2_with_ANY_NUM
     {
         [Input, DataType("ANY_NUM")]
         public Any VALUE;
@@ -50,12 +50,12 @@ namespace ExampleLib
             Eclr.TypeCode code;
 
             // Get the element type constants associate to the runtime type handle.
-            // The values are defined in the standard ECMA-335 "Common Language Infrastructure (CLI)", 
+            // The values are defined in the standard ECMA-335 "Common Language Infrastructure (CLI)",
             // Partition II, chapter II.23.1.16 "Element types used in signatures")
             code = (Eclr.TypeCode)Eclr.TypeInfo.GetTypeCode(VALUE.pRuntimeTypeHandle);
 
             // type dependent action
-            if (code == Eclr.TypeCode.Int16)	// i2
+            if (code == Eclr.TypeCode.Int16)    // short (2 bytes)
             {
                 short tempValue = *((short*)VALUE.pValue);
                 short tempMin = *((short*)MIN.pValue);
@@ -74,7 +74,7 @@ namespace ExampleLib
 
                 *pResult = tempValue;
             }
-            else if (code == Eclr.TypeCode.UInt16)	// u2
+            else if (code == Eclr.TypeCode.UInt16)  // unsigned short (2 bytes)
             {
                 ushort tempValue = *((ushort*)VALUE.pValue);
                 ushort tempMin = *((ushort*)MIN.pValue);
@@ -93,7 +93,7 @@ namespace ExampleLib
 
                 *pResult = tempValue;
             }
-            else if (code == Eclr.TypeCode.Int32)	// i4
+            else if (code == Eclr.TypeCode.Int32)   // int (4 bytes)
             {
                 int tempValue = *((int*)VALUE.pValue);
                 int tempMin = *((int*)MIN.pValue);
@@ -112,7 +112,7 @@ namespace ExampleLib
 
                 *pResult = tempValue;
             }
-            else if (code == Eclr.TypeCode.UInt32)	// u4
+            else if (code == Eclr.TypeCode.UInt32)  // unsigned int (4 bytes)
             {
                 uint tempValue = *((uint*)VALUE.pValue);
                 uint tempMin = *((uint*)MIN.pValue);

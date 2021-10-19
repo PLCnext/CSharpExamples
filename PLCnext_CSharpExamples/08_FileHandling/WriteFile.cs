@@ -24,7 +24,7 @@ namespace ExampleLib
         [Input]
         public IecString80 DATA1;
 
-        [Input]
+        [Input, DataType("ANY")]
         public Any DATA2;
 
         [Output]
@@ -44,7 +44,7 @@ namespace ExampleLib
         [Execution]
         public unsafe void __Process()
         {
-            if (EXECUTE && !ExecutePreviousState)
+            if (EXECUTE && (EXECUTE != ExecutePreviousState))
             {
                 try
                 {

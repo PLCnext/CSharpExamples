@@ -31,8 +31,15 @@ In Functions all `ANY` parameters must be passed by reference.
 Use the runtime type handle to identify the element type.
 
 ```cs
-code = (Eclr.TypeCode)Eclr.TypeInfo.GetTypeCode(VALUE.pRuntimeTypeHandle);
+Eclr.TypeCode code = (Eclr.TypeCode)Eclr.TypeInfo.GetTypeCode(VALUE.pRuntimeTypeHandle);
 ```
+
+Use the member nLength of VALUE to determine its size.
+```cs
+SIZE_OF_VALUE = VALUE.nLength;
+```
+
+
 
 FB1WithAny.cs is an example of using `ANY` in a function block. There, you don't need to reference your fields. 
 But `ANY` as an `Output` parameter is not supported. For this, the FB2WithAny.cs shows how to use an `InOut` parameter instead.

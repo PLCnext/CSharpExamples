@@ -1,21 +1,18 @@
 ﻿#region Copyright
-//  
-// Copyright (c) Phoenix Contact GmbH & Co. KG. All rights reserved.  
-// Licensed under the MIT. See LICENSE file in the project root for full license information.  
-//  
-#endregion
+
+//
+// Copyright (c) Phoenix Contact GmbH & Co. KG. All rights reserved.
+// Licensed under the MIT. See LICENSE file in the project root for full license information.
+//
+
+#endregion Copyright
 
 //uncomment the next row to change the signature of the function block (adding a second input)
 //#define AddParameter
 
-using System;
-using System.Iec61131Lib;
-using Eclr;
+using Iec61131.Engineering.Prototypes.Methods;
 using Iec61131.Engineering.Prototypes.Types;
 using Iec61131.Engineering.Prototypes.Variables;
-using Iec61131.Engineering.Prototypes.Methods;
-using Iec61131.Engineering.Prototypes.Common;
-
 
 namespace ExampleLib
 {
@@ -32,6 +29,7 @@ namespace ExampleLib
         [Input]
         public bool xDOWN;
 #endif
+
         [Output]
         public int iOUT;
 
@@ -66,4 +64,3 @@ namespace ExampleLib
         }
     }
 }
-

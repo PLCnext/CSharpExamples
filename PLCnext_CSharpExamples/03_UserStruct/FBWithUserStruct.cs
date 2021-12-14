@@ -1,26 +1,25 @@
 ﻿#region Copyright
-//  
-// Copyright (c) Phoenix Contact GmbH & Co. KG. All rights reserved.  
-// Licensed under the MIT. See LICENSE file in the project root for full license information.  
-//  
-#endregion
 
-using System;
-using System.Iec61131Lib;
-using Eclr;
+//
+// Copyright (c) Phoenix Contact GmbH & Co. KG. All rights reserved.
+// Licensed under the MIT. See LICENSE file in the project root for full license information.
+//
+
+#endregion Copyright
+
+using Iec61131.Engineering.Prototypes.Methods;
 using Iec61131.Engineering.Prototypes.Types;
 using Iec61131.Engineering.Prototypes.Variables;
-using Iec61131.Engineering.Prototypes.Methods;
-using Iec61131.Engineering.Prototypes.Common;
 
 namespace ExampleLib
 {
-    // The attribute "Structure" is necessary to make the struct visible in the PCWorx Engineer 
+    // The attribute "Structure" is necessary to make the struct visible in the PCWorx Engineer
     [Structure]
     public struct Position
     {
         // the fields must be public as well as the struct itself
         public int x;
+
         public int y;
     }
 
@@ -30,6 +29,7 @@ namespace ExampleLib
     {
         [Input]
         public Position NEW_POSITION;
+
         [Output]
         public Position CURRENT_POSITION;
 
@@ -66,6 +66,7 @@ namespace ExampleLib
     {
         [InOut]
         unsafe public Position* NEW_POSITION;
+
         [InOut]
         unsafe public Position* CURRENT_POSITION;
 

@@ -1,17 +1,14 @@
 ﻿#region Copyright
-//  
-// Copyright (c) Phoenix Contact GmbH & Co. KG. All rights reserved.  
-// Licensed under the MIT. See LICENSE file in the project root for full license information.  
-//  
-#endregion
 
-using System;
-using System.Iec61131Lib;
-using Eclr;
-using Iec61131.Engineering.Prototypes.Types;
-using Iec61131.Engineering.Prototypes.Variables;
+//
+// Copyright (c) Phoenix Contact GmbH & Co. KG. All rights reserved.
+// Licensed under the MIT. See LICENSE file in the project root for full license information.
+//
+
+#endregion Copyright
+
 using Iec61131.Engineering.Prototypes.Methods;
-using Iec61131.Engineering.Prototypes.Common;
+using Iec61131.Engineering.Prototypes.Types;
 
 namespace ExampleLib
 {
@@ -19,7 +16,7 @@ namespace ExampleLib
     public class FB_with_methods
     {
         //reuse of the struct in FBWithUserStruct.cs
-        Position CurrentPosition;
+        private Position CurrentPosition;
 
         [Initialization]
         public void __Init()
@@ -30,6 +27,7 @@ namespace ExampleLib
         public void __Process()
         {
         }
+
         //the attribute "User" indicates a method for the PLCnext Engineer
         //and make it available for the user in IEC code
         [User]
@@ -37,21 +35,25 @@ namespace ExampleLib
         {
             CurrentPosition.x = x;
         }
+
         [User]
         public void SetY(int y)
         {
             CurrentPosition.y = y;
         }
+
         [User]
         public int GetX()
         {
             return CurrentPosition.x;
         }
+
         [User]
         public int GetY()
         {
             return CurrentPosition.y;
         }
+
         //Complex data types are returned as referenced parameter
         [User]
         public void GetPosition(ref Position actualPosition)
@@ -60,12 +62,14 @@ namespace ExampleLib
         }
 
         // NOT SUPPORTED: Complex data types as return value
-        #pragma warning disable CSADD022
+#pragma warning disable CSADD022
+
         [User]
         public Position NotSupported_GetPositionReturningTheStructure()
         {
             return CurrentPosition;
         }
-        #pragma warning restore CSADD022
+
+#pragma warning restore CSADD022
     }
 }

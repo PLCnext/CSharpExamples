@@ -1,17 +1,18 @@
 ﻿#region Copyright
-//  
-// Copyright (c) Phoenix Contact GmbH & Co. KG. All rights reserved.  
-// Licensed under the MIT. See LICENSE file in the project root for full license information.  
-//  
-#endregion
 
-using System;
-using System.Iec61131Lib;
-using Eclr;
+//
+// Copyright (c) Phoenix Contact GmbH & Co. KG. All rights reserved.
+// Licensed under the MIT. See LICENSE file in the project root for full license information.
+//
+
+#endregion Copyright
+
+using Iec61131.Engineering.Prototypes.Common;
+using Iec61131.Engineering.Prototypes.Methods;
 using Iec61131.Engineering.Prototypes.Types;
 using Iec61131.Engineering.Prototypes.Variables;
-using Iec61131.Engineering.Prototypes.Methods;
-using Iec61131.Engineering.Prototypes.Common;
+using System;
+using System.Iec61131Lib;
 
 namespace ExampleLib
 {
@@ -20,8 +21,10 @@ namespace ExampleLib
     {
         [Input]
         public bool EN;
+
         [Output]
         public long UTC_TICKS;
+
         [Output]
         public IecString80 LOCAL_TIME;
 
@@ -52,41 +55,53 @@ namespace ExampleLib
         //uint#0 equals TIME#00:00:00
         [Input, DataType("TIME")]
         public uint Time;
+
         [Input, DataType("LTIME")]
         public long LTime;
-        //long#0 equals LDATE#1970-01-01  
+
+        //long#0 equals LDATE#1970-01-01
         [Input, DataType("LDATE")]
         public long LDate;
+
         // the short form LTOD and LDT does not work
         [Input, DataType("LTIME_OF_DAY")]
         public long Time_of_Day;
+
         [Input, DataType("LDATE_AND_TIME")]
         public long Date_and_Time;
 
         [Output]
         public uint uint_TIME;
+
         [Output]
         public long lLTIME;
+
         [Output]
         public long lLDATE;
+
         [Output]
         public long lLTOD;
+
         [Output]
         public long lLDT;
 
         [Output, DataType("TIME")]
         public uint out_TIME;
+
         [Output, DataType("LTIME")]
         public long out_LTIME;
+
         [Output, DataType("LDATE")]
         public long out_LDATE;
+
         [Output, DataType("LTIME_OF_DAY")]
         public long out_LTOD;
+
         [Output, DataType("LDATE_AND_TIME")]
         public long out_LDT;
+
         [Output, DataType("LDATE_AND_TIME")]
         public long LDT_now;
-
 
         [Initialization]
         public void __Init()

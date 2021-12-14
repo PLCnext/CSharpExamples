@@ -1,9 +1,14 @@
-﻿using System;
-using System.Iec61131Lib;
+﻿#region Copyright
+
+//
+// Copyright (c) Phoenix Contact GmbH & Co. KG. All rights reserved.
+// Licensed under the MIT. See LICENSE file in the project root for full license information.
+//
+
+#endregion Copyright
+using Iec61131.Engineering.Prototypes.Methods;
 using Iec61131.Engineering.Prototypes.Types;
 using Iec61131.Engineering.Prototypes.Variables;
-using Iec61131.Engineering.Prototypes.Methods;
-using Iec61131.Engineering.Prototypes.Common;
 using System.Threading;
 
 namespace ExampleLib
@@ -13,6 +18,7 @@ namespace ExampleLib
     {
         [InOut]
         public bool startThread;
+
         [Input]
         public short setPrio;
 
@@ -33,7 +39,7 @@ namespace ExampleLib
                 // serverObject.StaticMethod method using a
                 // ThreadStart delegate.
                 Thread StaticCaller = new Thread(
-                new ThreadStart(ServerClass.StaticMethod));
+                new ThreadStart(ServerClass.ThreadBody));
 
                 switch (setPrio)
                 {
@@ -41,24 +47,29 @@ namespace ExampleLib
                         StaticCaller.Priority = ThreadPriority.Lowest;
                         StaticCaller.Name = "cs_lowest";
                         break;
+
                     case 101:
                         StaticCaller.Priority = ThreadPriority.BelowNormal;
                         StaticCaller.Name = "cs_bnormal";
                         break;
+
                     case 102:
                         StaticCaller.Priority = ThreadPriority.Normal;
                         StaticCaller.Name = "cs_normal";
                         break;
+
                     case 103:
                         StaticCaller.Priority = ThreadPriority.AboveNormal;
                         StaticCaller.Name = "cs_anormal";
                         break;
+
                     case 104:
                         StaticCaller.Priority = ThreadPriority.Highest;
                         StaticCaller.Name = "cs_higest";
                         break;
+
                     default:
-                        // It is possible to cast integers from 0-99 as 
+                        // It is possible to cast integers from 0-99 as
                         // ThreadPriority. Like in C++ its not recommended
                         // to run threads in higher priority.
                         StaticCaller.Priority = (ThreadPriority)setPrio;
@@ -69,13 +80,12 @@ namespace ExampleLib
                 StaticCaller.Start();
                 startThread = false;
             }
-
         }
     }
 
     public class ServerClass
     {
-        public static void StaticMethod()
+        public static void ThreadBody()
         {
             int a = 0;
             int b = 1;

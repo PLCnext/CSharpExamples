@@ -25,7 +25,7 @@ namespace ExampleLib
         public bool xActivate;
 
 #if AddParameter
-        //adding an addinal input
+        //adding an additional input
         [Input]
         public bool xDOWN;
 #endif

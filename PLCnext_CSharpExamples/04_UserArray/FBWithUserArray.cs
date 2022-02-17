@@ -1,19 +1,18 @@
 ﻿#region Copyright
-//  
-// Copyright (c) Phoenix Contact GmbH & Co. KG. All rights reserved.  
-// Licensed under the MIT. See LICENSE file in the project root for full license information.  
-//  
-#endregion
 
-using System;
-using System.Iec61131Lib;
-using Eclr;
-using Eclr.Pcos;
-using System.Runtime.InteropServices;
+//
+// Copyright (c) Phoenix Contact GmbH & Co. KG. All rights reserved.
+// Licensed under the MIT. See LICENSE file in the project root for full license information.
+//
+
+#endregion Copyright
+
+using Iec61131.Engineering.Prototypes.Common;
+using Iec61131.Engineering.Prototypes.Methods;
 using Iec61131.Engineering.Prototypes.Types;
 using Iec61131.Engineering.Prototypes.Variables;
-using Iec61131.Engineering.Prototypes.Methods;
-using Iec61131.Engineering.Prototypes.Common;
+using System;
+using System.Runtime.InteropServices;
 
 namespace ExampleLib
 {
@@ -26,15 +25,17 @@ namespace ExampleLib
     [StructLayout(LayoutKind.Explicit, Size = ArrayProperties.ByteSize)]
     public struct IntArrayFB
     {
-        // Helper containing constants to have a 
+        // Helper containing constants to have a
         // clear and maintainable definition for boundaries and size
-        struct ArrayProperties
+        private struct ArrayProperties
         {
             public const int LowerBound = -10;     // must not necessarily being zero, it also can be negative
             public const int UpperBound = 9;       // IEC61131 representation is : userArray : ARRAY[-10..9] OF DINT     (* size == 20 *)
+
             // the size must be changed to the correct size of your elements times the amount of elements
             public const int ByteSize = (UpperBound - LowerBound + 1) * sizeof(int);
         }
+
         public const int ByteSize = ArrayProperties.ByteSize;
 
         // Fields
@@ -42,9 +43,12 @@ namespace ExampleLib
         [FieldOffset(0)]
         // The Anchor's data type is the child data type of the array
         public int Anchor;
+
         // The constants LB and UB define the upper and lower bound. Boundaries will be checked by using them.
         public const int LB = ArrayProperties.LowerBound;
+
         public const int UB = ArrayProperties.UpperBound;
+
         public int this[int index]
         {
             get
@@ -67,7 +71,7 @@ namespace ExampleLib
             }
             set
             {
-                if (index >= (LB - ArrayProperties.LowerBound) && index <= (UB - ArrayProperties.LowerBound) )
+                if (index >= (LB - ArrayProperties.LowerBound) && index <= (UB - ArrayProperties.LowerBound))
                 {
                     unsafe
                     {
@@ -90,15 +94,18 @@ namespace ExampleLib
     {
         [Input]
         public IntArrayFB IN_ARRAY;
+
         [Output]
         public int MIN_VALUE;
+
         [Output]
         public int MAX_VALUE;
+
         [Output]
         public int AVERAGE;
+
         [Output]
         public bool IS_DATA_CHANGED;
-
 
         [Initialization]
         public void __Init()

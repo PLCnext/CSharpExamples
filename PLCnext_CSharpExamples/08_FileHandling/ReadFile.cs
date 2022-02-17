@@ -1,17 +1,19 @@
 ﻿#region Copyright
-//  
-// Copyright (c) Phoenix Contact GmbH & Co. KG. All rights reserved.  
-// Licensed under the MIT. See LICENSE file in the project root for full license information.  
-//  
-#endregion
 
+//
+// Copyright (c) Phoenix Contact GmbH & Co. KG. All rights reserved.
+// Licensed under the MIT. See LICENSE file in the project root for full license information.
+//
+
+#endregion Copyright
+
+using Iec61131.Engineering.Prototypes.Common;
+using Iec61131.Engineering.Prototypes.Methods;
+using Iec61131.Engineering.Prototypes.Types;
+using Iec61131.Engineering.Prototypes.Variables;
 using System;
 using System.Iec61131Lib;
 using System.IO;
-using Iec61131.Engineering.Prototypes.Types;
-using Iec61131.Engineering.Prototypes.Variables;
-using Iec61131.Engineering.Prototypes.Methods;
-using Iec61131.Engineering.Prototypes.Common;
 
 namespace ExampleLib
 {
@@ -27,9 +29,8 @@ namespace ExampleLib
         [Output]
         public IecString80 DATA1;
 
-        [InOut]
+        [InOut, DataType("ANY")]
         public Any DATA2;
-
 
         private bool ExecutePreviousState;  // used for rising edge detection
 
@@ -43,9 +44,9 @@ namespace ExampleLib
         }
 
         [Execution]
-        public unsafe void __Process()
+        public void __Process()
         {
-            if (EXECUTE && !ExecutePreviousState)
+            if (EXECUTE && (EXECUTE != ExecutePreviousState))
             {
                 try
                 {

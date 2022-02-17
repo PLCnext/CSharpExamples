@@ -1,17 +1,15 @@
 ﻿#region Copyright
-//  
-// Copyright (c) Phoenix Contact GmbH & Co. KG. All rights reserved.  
-// Licensed under the MIT. See LICENSE file in the project root for full license information.  
-//  
-#endregion
 
-using System;
-using System.Iec61131Lib;
-using Eclr;
+//
+// Copyright (c) Phoenix Contact GmbH & Co. KG. All rights reserved.
+// Licensed under the MIT. See LICENSE file in the project root for full license information.
+//
+
+#endregion Copyright
+
+using Iec61131.Engineering.Prototypes.Methods;
 using Iec61131.Engineering.Prototypes.Types;
 using Iec61131.Engineering.Prototypes.Variables;
-using Iec61131.Engineering.Prototypes.Methods;
-using Iec61131.Engineering.Prototypes.Common;
 
 namespace ExampleLib
 {
@@ -19,7 +17,9 @@ namespace ExampleLib
     public struct FUExampleStruct
     {
         public int a;
+        public int b;
     }
+
     [Function]
     public static class FU_with_complex_data_type
     {
@@ -33,6 +33,7 @@ namespace ExampleLib
         {
             FU_with_complex_data_type = IN1;
             FU_with_complex_data_type.a++;
+            FU_with_complex_data_type.b--;
         }
 
         // NOT SUPPORTED! Do not return complex data types. This code pattern is NOT supported by the Engineering tools.
@@ -42,6 +43,7 @@ namespace ExampleLib
             FUExampleStruct result;
             result = IN1;
             result.a++;
+            result.b--;
 
             return result;
         }

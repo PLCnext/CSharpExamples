@@ -1,10 +1,8 @@
-﻿using System;
-using System.Iec61131Lib;
+using Eclr;
+using Iec61131.Engineering.Prototypes.Common;
+using Iec61131.Engineering.Prototypes.Methods;
 using Iec61131.Engineering.Prototypes.Types;
 using Iec61131.Engineering.Prototypes.Variables;
-using Iec61131.Engineering.Prototypes.Methods;
-using Iec61131.Engineering.Prototypes.Common;
-using Eclr;
 
 namespace ExampleLib
 {   // Structure with explicit IEC data type definition by the attribute [DataType]:
@@ -15,6 +13,7 @@ namespace ExampleLib
     {
         [DataType("BYTE")]
         public byte LoByte;
+
         [DataType("BYTE")]
         public byte HiByte;
     }
@@ -22,18 +21,21 @@ namespace ExampleLib
     [FunctionBlock]
     public class MiscExamples
     {
-        
         // Fields that are marked with the [OPC] attribute are made visible by the OPC server when activated.
         // Allowed are Input and Output parameter, but not InOut parameter.
         [Input, OPC]
         public short IN1;
+
         [Input]
         public short IN2;
+
         [Output, DataType("WORD"), OPC]
         public ushort OUT;
-        // Fields of a complex data type can be marked with the OPC attribute, too. 
+
+        // Fields of a complex data type can be marked with the OPC attribute, too.
         [Output, OPC]
         public BytePair BYTES;
+
         // Also private data can be made visible to the OPC, see the "Sum" field.
         [OPC]
         private short Sum;

@@ -15,7 +15,7 @@ using Iec61131.Engineering.Library;
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("PHOENIX CONTACT ELECTRONICS GmbH")]
-[assembly: AssemblyCopyright("Copyright © PHOENIX CONTACT ELECTRONICS GmbH 2018")]
+[assembly: AssemblyCopyright("Copyright © PHOENIX CONTACT ELECTRONICS GmbH 2021")]
 
 // Version information for an assembly consists of the following four values:
 //

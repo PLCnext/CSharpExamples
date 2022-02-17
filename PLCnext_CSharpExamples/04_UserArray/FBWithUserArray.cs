@@ -1,19 +1,18 @@
 ﻿#region Copyright
-//  
-// Copyright (c) Phoenix Contact GmbH & Co. KG. All rights reserved.  
-// Licensed under the MIT. See LICENSE file in the project root for full license information.  
-//  
-#endregion
 
-using System;
-using System.Iec61131Lib;
-using Eclr;
-using Eclr.Pcos;
-using System.Runtime.InteropServices;
+//
+// Copyright (c) Phoenix Contact GmbH & Co. KG. All rights reserved.
+// Licensed under the MIT. See LICENSE file in the project root for full license information.
+//
+
+#endregion Copyright
+
+using Iec61131.Engineering.Prototypes.Common;
+using Iec61131.Engineering.Prototypes.Methods;
 using Iec61131.Engineering.Prototypes.Types;
 using Iec61131.Engineering.Prototypes.Variables;
-using Iec61131.Engineering.Prototypes.Methods;
-using Iec61131.Engineering.Prototypes.Common;
+using System;
+using System.Runtime.InteropServices;
 
 namespace ExampleLib
 {
@@ -22,33 +21,39 @@ namespace ExampleLib
     // 1. Array (Actually only one-dimensional arrays are supported by the PCWorx Engineer)
     // 2. ArrayDimension
     // 3. DataType to define the data type of the array elements
-    [Array(1), ArrayDimension(0, ArrayProperties.lowerBound, ArrayProperties.upperBound), DataType("DINT")]
-    [StructLayout(LayoutKind.Explicit, Size = ArrayProperties.size)]
-    public struct IntArray
+    [Array(1), ArrayDimension(0, ArrayProperties.LowerBound, ArrayProperties.UpperBound), DataType("DINT")]
+    [StructLayout(LayoutKind.Explicit, Size = ArrayProperties.ByteSize)]
+    public struct IntArrayFB
     {
-        // Helper containing constants to have a 
+        // Helper containing constants to have a
         // clear and maintainable definition for boundaries and size
-        struct ArrayProperties
+        private struct ArrayProperties
         {
-            public const int lowerBound = 0;
-            public const int upperBound = 9;
+            public const int LowerBound = -10;     // must not necessarily being zero, it also can be negative
+            public const int UpperBound = 9;       // IEC61131 representation is : userArray : ARRAY[-10..9] OF DINT     (* size == 20 *)
+
             // the size must be changed to the correct size of your elements times the amount of elements
-            public const int size = (upperBound - lowerBound + 1) * sizeof(int);
+            public const int ByteSize = (UpperBound - LowerBound + 1) * sizeof(int);
         }
+
+        public const int ByteSize = ArrayProperties.ByteSize;
 
         // Fields
         // The field "Anchor" defines the beginning of the array.
         [FieldOffset(0)]
         // The Anchor's data type is the child data type of the array
         public int Anchor;
+
         // The constants LB and UB define the upper and lower bound. Boundaries will be checked by using them.
-        public const int LB = ArrayProperties.lowerBound;
-        public const int UB = ArrayProperties.upperBound;
+        public const int LB = ArrayProperties.LowerBound;
+
+        public const int UB = ArrayProperties.UpperBound;
+
         public int this[int index]
         {
             get
             {
-                if (index >= LB && index <= UB)
+                if (index >= (LB - ArrayProperties.LowerBound) && index <= (UB - ArrayProperties.LowerBound))
                 {
                     unsafe
                     {
@@ -66,7 +71,7 @@ namespace ExampleLib
             }
             set
             {
-                if (index >= LB && index <= UB)
+                if (index >= (LB - ArrayProperties.LowerBound) && index <= (UB - ArrayProperties.LowerBound))
                 {
                     unsafe
                     {
@@ -88,55 +93,70 @@ namespace ExampleLib
     public class FB_with_user_array
     {
         [Input]
-        public IntArray iIN;
-        [Output]
-        public int iMIN_VALUE;
-        [Output]
-        public int iMAX_VALUE;
-        [Output]
-        public int iAVERAGE;
-        [Output]
-        public bool xIS_DATA_CHANGED;
+        public IntArrayFB IN_ARRAY;
 
-        private IntArray Backup;
+        [Output]
+        public int MIN_VALUE;
+
+        [Output]
+        public int MAX_VALUE;
+
+        [Output]
+        public int AVERAGE;
+
+        [Output]
+        public bool IS_DATA_CHANGED;
 
         [Initialization]
         public void __Init()
         {
         }
 
+        public const int BackupArraySize = 20;
+        public int[] BackupData = new int[BackupArraySize];
+
+        // This function block example demonstrates two jobs:
+        // First job is to calculate the average value of the given arrays elements.
+        // Second job is to compare the current array content to its content of the previous FB call.
         [Execution]
         public unsafe void __Process()
         {
-            iMIN_VALUE = int.MaxValue;
-            iMAX_VALUE = 0;
+            // Implementation of first job
+            MIN_VALUE = int.MaxValue;
+            MAX_VALUE = 0;
             int total = 0;
-
-            // This kind of accessing the array works fine with all types of arrays but it is really cumbersome
-            // Nevertheless it can also be used for arrays of e.g. IecStrings.
-            fixed (int* data = &iIN.Anchor)
+            fixed (int* data = &IN_ARRAY.Anchor)
             {
-                for (int i = 0; i < (IntArray.UB - IntArray.LB + 1); i++)
+                for (int i = 0; i < (IntArrayFB.UB - IntArrayFB.LB + 1); i++)
                 {
                     int currentValue = data[i];
                     total += currentValue;
-                    iMIN_VALUE = Math.Min(iMIN_VALUE, currentValue);
-                    iMAX_VALUE = Math.Max(iMAX_VALUE, currentValue);
+                    MIN_VALUE = Math.Min(MIN_VALUE, currentValue);
+                    MAX_VALUE = Math.Max(MAX_VALUE, currentValue);
                 }
             }
+            AVERAGE = total / (IntArrayFB.UB - IntArrayFB.LB + 1);
 
+            // Implementation of second job
             // For arrays of elementary types the index operator can be used effectively.
-            xIS_DATA_CHANGED = false;
-            for (int i = IntArray.LB; i <= IntArray.UB; i++)
+            IS_DATA_CHANGED = false;
+            // if input array of function block fits locally created backup array
+            int elementSize = IntArrayFB.ByteSize / sizeof(int);
+            if (BackupArraySize >= elementSize)
             {
-                if(Backup[i] != iIN[i])
+                for (int i = 0; i <= (IntArrayFB.UB - IntArrayFB.LB + 1); i++)
                 {
-                    xIS_DATA_CHANGED = true;
+                    if (BackupData[i] != IN_ARRAY[i])
+                    {
+                        IS_DATA_CHANGED = true;
+                    }
+                    BackupData[i] = IN_ARRAY[i];
                 }
             }
-            Backup = iIN;
-
-            iAVERAGE = total / (IntArray.UB - IntArray.LB + 1);
+            else
+            {
+                throw new IndexOutOfRangeException(); // Array size mismatch
+            }
         }
     }
 }

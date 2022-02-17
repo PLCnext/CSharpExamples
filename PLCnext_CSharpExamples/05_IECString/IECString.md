@@ -1,8 +1,31 @@
 # IEC String
 ([FBWithString.cs](FBWithString.cs))
 
-The user-defined IECString allows the implementation of different sized strings, besides the fixed-length IECString80.
-The attribute `String()` defines the size of the string, and `StructLayout()` must include the size of the actual string + 4 byte header + 1 byte terminating zero + padding for two byte alignment.
-The struct itself contains a field of the type `IecStringEx` with a `FieldOffset()` attribute.
-The constructor (`public void ctor()`) sets the maximum length of the string. Each string ctor() must be called during initialization, otherwise the string will have a length of 0.
-`rctor()` is the retain constructor and is currently not used in PLCnext.
+IEC strings always contain the number of characters. Preceding is a 4 byte header.
+The character string must be terminated with one byte containing zero. The memory representation may contain one byte padding to fulfill 2 byte alignment.<br>
+All IEC strings use internally a structure **IecStringEx**
+## Fixed length string
+**IECString80**<br>
+The default string IECString80's maximum size is 80 bytes, which is set implicitly.<br>
+The memory representation is 80 characters of string content + 4 byte header + 1 byte terminating zero + padding for two byte alignment.
+## User-defined string
+**IECString**<br>
+The IEC user string type can be defined to the users needs.<br>
+The memory representation is the amount of characters in the string + 4 byte header + 1 byte terminating zero + padding for two byte alignment.<br>
+For user defined strings, a structure of type "IecStringEx" is necessary.<br>
+The constructor (**ctor()**) of this string must set its maximum size.
+## IecStringEx
+The IecStringEx structure contains the members **maximumLength** and **currentLength**<br>
+The member maximumLength must be initialized to the required size before use.
+A field of the type `IecStringEx` must have the `FieldOffset()` attribute, 
+to define the beginning of the IEC strings physical representation.
+
+## Two function block variants are implemented
+Both function blocks copy the input string VALUE to the output string RESULT1 and
+set the output string RESULT2 to a different text controlled by input MESSAGE_ID.
+1. **FunctionBlock1**<br>
+   Implements the function block with parameter passing by value
+2. **FunctionBlock2**<br>
+   Implements the function block with parameter passing by reference which 
+means [InOut] parameter declaration is used.
+

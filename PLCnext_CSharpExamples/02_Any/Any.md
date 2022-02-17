@@ -1,4 +1,5 @@
-# Any In & Output  
+# Any In & Output
+
 ([FunWithAny.cs](FunWithAny.cs), [FB1WithAny.cs](FB1WithAny.cs), [FB2WithAny.cs](FB2WithAny.cs))
 
 FunWithAny.cs is an example how to use the IEC 61131-3 `ANY` parameter in a C# function.  
@@ -11,6 +12,7 @@ the `DataType("DWORD")` attribute is needed.
 For `ANY` parameters, the `DataType()` attribute must always be used.
 For more information on data type mapping, read the [Readme.txt](../Readme.txt),
 available in every Visual Studio eCLR project.
+
 ```cs
 [Function, DataType("ANY_NUM")]
 public static class Fun_with_ANY
@@ -18,6 +20,7 @@ public static class Fun_with_ANY
 ```
 
 In Functions all `ANY` parameters must be passed by reference.
+
 ```cs
     [Execution]
     public unsafe static void __Process(
@@ -28,6 +31,7 @@ In Functions all `ANY` parameters must be passed by reference.
     {
     ...
 ```
+
 Use the runtime type handle to identify the element type.
 
 ```cs
@@ -35,11 +39,10 @@ Eclr.TypeCode code = (Eclr.TypeCode)Eclr.TypeInfo.GetTypeCode(VALUE.pRuntimeType
 ```
 
 Use the member nLength of VALUE to determine its size.
+
 ```cs
 SIZE_OF_VALUE = VALUE.nLength;
 ```
 
-
-
-FB1WithAny.cs is an example of using `ANY` in a function block. There, you don't need to reference your fields. 
+FB1WithAny.cs is an example of using `ANY` in a function block. There, you don't need to reference your fields.
 But `ANY` as an `Output` parameter is not supported. For this, the FB2WithAny.cs shows how to use an `InOut` parameter instead.

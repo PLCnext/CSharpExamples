@@ -1,4 +1,4 @@
-﻿using Eclr;
+using Eclr;
 using Iec61131.Engineering.Prototypes.Common;
 using Iec61131.Engineering.Prototypes.Methods;
 using Iec61131.Engineering.Prototypes.Types;

@@ -1,4 +1,4 @@
-﻿#region Copyright
+#region Copyright
 
 //
 // Copyright (c) Phoenix Contact GmbH & Co. KG. All rights reserved.

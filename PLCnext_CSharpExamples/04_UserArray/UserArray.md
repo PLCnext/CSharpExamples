@@ -23,5 +23,6 @@ Struct size = 104
 The alignment always depends on the biggest variable. The IECString itself is only a 2 Byte aligned struct, therefore in this example the double is the leading element and the structure becomes the 8 Byte alignment.
 
 **The [Execution] method __Process() demonstrates two jobs:**
+
 1. Calculate the average value of the given array's elements.
 2. Compare the current array content to its content of the previous FB call.

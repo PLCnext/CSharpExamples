@@ -44,3 +44,7 @@ a '+' must have the optional attribute "DataType" for an unambiguous assignment.
 `[OPC]`
 
 PLCnext has an integrated OPC server. The [OPC] attribute adds the related field as a new entry in the server tree, under the root entry ARP.Eclr.
+
+`[GdsRetain]`
+
+This attribute allowes variable and port values to be kept during power down so these values can be restored on power return. For more information you can read about retain handling [here](https://www.plcnext.help/te/PLCnext_Runtime/Extended_retain_handling.htm) in the PLCnext Info Center. The attribute [Retain] is depricate and does not have any function.

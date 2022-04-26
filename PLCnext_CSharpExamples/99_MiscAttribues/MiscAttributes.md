@@ -1,5 +1,6 @@
-#Misc Attributes
-([MiscAttributes.md](MiscAttributes.md))
+# Misc Attributes
+
+([MiscAttributes.cs](MiscAttributes.cs))
 
 `[DataType]`
 
@@ -44,3 +45,27 @@ a '+' must have the optional attribute "DataType" for an unambiguous assignment.
 `[OPC]`
 
 PLCnext has an integrated OPC server. The [OPC] attribute adds the related field as a new entry in the server tree, under the root entry ARP.Eclr.
+
+`[Ehmi]`
+
+The port/variable is visible for the local Web Server and can be read/written in the HMI application.
+
+`[ProfiCloud]`
+
+The port/variable is visible for Proficloud services and can therefore be subscribed by Proficloud devices.
+
+`[Redundant]`
+
+This attribute is only relevant for PLCnext Technology controllers with redundancy function. Enables/disables the synchronization of variables and ports between the PRIMARY and BACKUP controller. When enabled (set for a variable), the PRIMARY controller transfers the value to be synchronized to the BACKUP controller before each cycle.
+
+`[GdsRetain]`
+
+This attribute allowes variable and port values to be kept during power down so these values can be restored on power return. For more information you can read about retain handling [here](https://www.plcnext.help/te/PLCnext_Runtime/Extended_retain_handling.htm) in the PLCnext Info Center. Alternatively, the Retain attribute can be used, but it is not allowed to mix GdsRetain and Retain within the POU.
+
+`[Hidden]`
+
+This attribute hides user defined data types (arrays, structures, enumerations, strings) and program organization units (functions, function blocks, programs) from Type Hierarchy and IntelliSense.
+
+`[NotOverridable]`
+
+It is possible to override program organization units in a PLCnext Engineer project to change their functionality. The NotOverridable attribute can be used to prevent this for specific POUs.

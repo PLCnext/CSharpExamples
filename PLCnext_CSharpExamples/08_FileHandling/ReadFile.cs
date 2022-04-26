@@ -33,7 +33,7 @@ namespace ExampleLib
         public Any DATA2;
 
         private bool ExecutePreviousState;  // used for rising edge detection
-
+        // Files are stored by default in the /opt/plcnext folder
         private const string TextFileName = "TextFile.txt";
         private const string BinaryFileName = "BinaryFile.bin";
 

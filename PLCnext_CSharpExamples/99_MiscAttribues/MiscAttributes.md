@@ -60,8 +60,12 @@ This attribute is only relevant for PLCnext Technology controllers with redundan
 
 `[GdsRetain]`
 
-This attribute allowes variable and port values to be kept during power down so these values can be restored on power return. For more information you can read about retain handling [here](https://www.plcnext.help/te/PLCnext_Runtime/Extended_retain_handling.htm) in the PLCnext Info Center. The attribute [Retain] is depricate and does not have any function.
+This attribute allowes variable and port values to be kept during power down so these values can be restored on power return. For more information you can read about retain handling [here](https://www.plcnext.help/te/PLCnext_Runtime/Extended_retain_handling.htm) in the PLCnext Info Center. Alternatively, the Retain attribute can be used, but it is not allowed to mix GdsRetain and Retain within the POU.
 
 `[Hidden]`
 
 This attribute hides user defined data types (arrays, structures, enumerations, strings) and program organization units (functions, function blocks, programs) from Type Hierarchy and IntelliSense.
+
+`[NotOverridable]`
+
+It is possible to override program organization units in a PLCnext Engineer project to change their functionality. The NotOverridable attribute can be used to prevent this for specific POUs.

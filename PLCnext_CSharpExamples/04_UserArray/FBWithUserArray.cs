@@ -127,7 +127,7 @@ namespace ExampleLib
             int total = 0;
             fixed (int* data = &IN_ARRAY.Anchor)
             {
-                for (int i = 0; i < (IntArrayFB.UB - IntArrayFB.LB + 1); i++)
+                for (int i = 0; i <= (IntArrayFB.UB - IntArrayFB.LB); i++)
                 {
                     int currentValue = data[i];
                     total += currentValue;
@@ -144,7 +144,7 @@ namespace ExampleLib
             int elementSize = IntArrayFB.ByteSize / sizeof(int);
             if (BackupArraySize >= elementSize)
             {
-                for (int i = 0; i <= (IntArrayFB.UB - IntArrayFB.LB + 1); i++)
+                for (int i = 0; i <= (IntArrayFB.UB - IntArrayFB.LB); i++)
                 {
                     if (BackupData[i] != IN_ARRAY[i])
                     {

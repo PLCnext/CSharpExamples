@@ -1,6 +1,6 @@
 # User Struct
 
-([FBWithUserStructs.cs](FBWithUserStruct.cs))
+([FBWithUserStruct.cs](FBWithUserStruct.cs))
 
 To make a structure visible in PLCnext Engineer, the attribute
 `[Structure]` is needed and the fields must be declared public.

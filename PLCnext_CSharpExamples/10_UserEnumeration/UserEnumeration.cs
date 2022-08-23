@@ -14,7 +14,7 @@ using Iec61131.Engineering.Prototypes.Variables;
 
 namespace ExampleLib
 {
-    // The attribute "Structure" is necessary to make the struct visible in the PCWorx Engineer
+    // The attribute "Enumeration" is necessary to make the enum visible in PLCnext Engineer
     [Enumeration]
     public enum MyEnumeration : int
     {

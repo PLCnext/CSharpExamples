@@ -15,7 +15,7 @@ available in every Visual Studio C# PLCnext project.
 
 ```cs
 [Function, DataType("ANY_NUM")]
-public static class Fun_with_ANY
+public static class Fun_with_ANY_NUM
 {
 ```
 
@@ -24,7 +24,7 @@ In Functions all `ANY` parameters must be passed by reference.
 ```cs
     [Execution]
     public unsafe static void __Process(
-        [Output] ref Any Fun_with_ANY,
+        [DataType("ANY")] ref Any Fun_with_ANY_NUM,
         [Input, DataType("ANY_NUM")] ref Any VALUE,
         [Input, DataType("ANY_NUM")] ref Any MIN,
         [Input, DataType("ANY_NUM")] ref Any MAX)
@@ -41,7 +41,7 @@ Eclr.TypeCode code = (Eclr.TypeCode)Eclr.TypeInfo.GetTypeCode(VALUE.pRuntimeType
 Use the member nLength of VALUE to determine its size.
 
 ```cs
-SIZE_OF_VALUE = VALUE.nLength;
+uint SIZE_OF_VALUE = VALUE.nLength;
 ```
 
 FB1WithAny is an example of using `ANY` in a function block. There, you don't need to reference your fields.

@@ -31,13 +31,13 @@ namespace ExampleLib
         //the attribute "User" indicates a method for the PLCnext Engineer
         //and make it available for the user in IEC code
         [User]
-        public void SetX(int x)
+        public void SetX([Input]int x)
         {
             CurrentPosition.x = x;
         }
 
         [User]
-        public void SetY(int y)
+        public void SetY([Input]int y)
         {
             CurrentPosition.y = y;
         }
@@ -56,9 +56,9 @@ namespace ExampleLib
 
         //Complex data types are returned as referenced parameter
         [User]
-        public void GetPosition(ref Position actualPosition)
+        public void GetPosition([Output] ref Position GetPosition)
         {
-            actualPosition = CurrentPosition;
+            GetPosition = CurrentPosition;
         }
 
         // NOT SUPPORTED: Complex data types as return value

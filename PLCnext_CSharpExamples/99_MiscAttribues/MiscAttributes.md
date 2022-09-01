@@ -73,3 +73,7 @@ It is possible to override program organization units in a PLCnext Engineer proj
 `[Invisible]`
 
 This attribute added to inputs/outputs/method parameters hides the pin on graphical editors in the PLCnext Engineer. Direct access is still possible.
+
+`[Local]`
+
+This attribute on public FB fields exposes that field to the user in IEC code worksheets. The field is accessible through the FB instance.

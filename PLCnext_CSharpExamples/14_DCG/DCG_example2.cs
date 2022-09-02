@@ -145,12 +145,13 @@ namespace DcgBestPracticePattern3
                 fbs.Add(o);
             }
         }
-        internal void Remove(BackgroundFbImpl o)
+        internal bool Remove(BackgroundFbImpl o)
         {
             lock (this)
             {
                 fbs.Remove(o);
             }
+            return true;
         }
         internal BackgroundFbImpl[] GetAll()
         {
@@ -175,8 +176,10 @@ namespace DcgBestPracticePattern3
             if (worker == null)
             {
                 ThreadStart start = new ThreadStart(TaskBody);
-                worker = new Thread(start);
-                worker.Priority = ThreadPriority.Lowest;
+                worker = new Thread(start)
+                {
+                    Priority = ThreadPriority.Lowest
+                };
                 worker.Start();
                 return true;
             }

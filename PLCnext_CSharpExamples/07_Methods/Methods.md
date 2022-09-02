@@ -23,3 +23,13 @@ public void GetPosition([Output] ref Position GetPosition)
     GetPosition = CurrentPosition;
 }
 ```
+
+> **NOT SUPPORTED:** Complex data types as return value!
+
+```cs
+        [User]
+        public Position NotSupported_GetPositionReturningTheStructure()
+        {
+            return CurrentPosition;
+        }
+```

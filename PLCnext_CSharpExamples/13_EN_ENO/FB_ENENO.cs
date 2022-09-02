@@ -10,6 +10,7 @@
 using Iec61131.Engineering.Prototypes.Methods;
 using Iec61131.Engineering.Prototypes.Types;
 using Iec61131.Engineering.Prototypes.Variables;
+using Iec61131.Engineering.Prototypes.Common;
 
 namespace ExampleLib
 {
@@ -27,7 +28,7 @@ namespace ExampleLib
         [Output]
         public bool ENO;
 
-        [Output]
+        [Output, DataType("DINT")]
         public int iOUT;
 
         [Initialization]

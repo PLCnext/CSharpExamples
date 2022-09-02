@@ -27,16 +27,15 @@ namespace ExampleLib
             // If the data type is void, the Output must be set explicitly
             // with the class name (function name)
             // [Output] short FU_with_ENENO,
-            [Input] short IN1,
-            [Input, DataType("WORD")] ushort IN2)
+            [Input, DataType("INT")] short IN1,
+            [Input, DataType("INT")] short IN2)
         {
             // Make sure the return value is well defined
-            short Function1 = 0;
+            short Function1 = (short) (IN1 + IN2);
 
             //
             // TODO: Write the logic of the function
             //
-
             // Return the result
             return Function1;
         }
@@ -53,7 +52,7 @@ namespace ExampleLib
         public static bool __Process(
             // Add the class name (function name) as single Output parameter
             [Output] ref short FU_with_ENENO,
-            [Input] short IN1,
+            [Input, DataType("WORD")] ushort IN1,
             [Input, DataType("WORD")] ushort IN2)
         {
             // Make sure the Output value is well defined
@@ -63,7 +62,7 @@ namespace ExampleLib
             // TODO: Write the logic of the function
             // and implement the condition
             // for changing ENO to false e.g.
-            if (IN1 < 0)
+            if (IN1 < IN2)
                 return false;
 
             // Return ENO

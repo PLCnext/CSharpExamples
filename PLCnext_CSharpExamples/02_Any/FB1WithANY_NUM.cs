@@ -32,10 +32,10 @@ namespace ExampleLib
         public Any MAX;
 
         // Caution: Output parameters are not supported as ANY. Use InOut parameters instead (see FB2WithAny.cs)
-        [Output]
+        [Output, DataType("DINT")]
         public int RESULT;
 
-        [Output]
+        [Output, DataType("UDINT")]
         public uint SIZE_OF_VALUE;
 
         [Initialization]

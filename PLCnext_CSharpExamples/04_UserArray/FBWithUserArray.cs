@@ -95,13 +95,13 @@ namespace ExampleLib
         [Input]
         public IntArrayFB IN_ARRAY;
 
-        [Output]
+        [Output, DataType("DINT")]
         public int MIN_VALUE;
 
-        [Output]
+        [Output, DataType("DINT")]
         public int MAX_VALUE;
 
-        [Output]
+        [Output, DataType("DINT")]
         public int AVERAGE;
 
         [Output]

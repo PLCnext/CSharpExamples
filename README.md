@@ -37,6 +37,20 @@ The [`CSharpExamples`](https://github.com/PLCnext/CSharpExamples) repository is 
 
 Find all information how to start coding C# for PLCnext Technology in our [Community](https://www.plcnext-community.net/index.php?option=com_content&view=category&layout=blog&id=74&Itemid=350&lang=en) or watch the [Youtube Playlist](https://www.youtube.com/playlist?list=PLXpIBdAgtoRKO3lWQAQweje1oC7JwJcnM) on our [Technical Support Channel](https://www.youtube.com/c/PhoenixContactTechnicalSupport)
 
+## Creating Example Project
+
+Most of the examples are ready to build and try with the PLCnext Toolchain C# Extension for Visual Studio. Follow the steps to get started:
+
+1. Make sure you have all the [required installations](https://www.plcnext.help/te/Programming/Cpp/Cpp_programming/Required_Installations_2021_6.htm?tocid=13_4_3_2).
+2. Start a new [Visual Studio 2019 project](https://www.plcnext.help/te/Programming/Csharp/Csharp_programming/Creating_a_Csharp_firmware_library.htm) (only step 1 is needed).
+3. Copy all files from the `PLCnext_CSharpExamples` folder to your project folder.
+4. In Visual Studio Solution Explorer enable "Show All Files" (see red square in the picture)
+![Add2VS](Add_Examples2Project.png)
+5. Select all added files and add them to the project via right click "Include in Project".
+6. To be able to build, enable unsafe code in the Project --> Properties --> Build and select "Allow unsafe code"
+
+> **Note:** There will be some Warnings and Massages from the Code Analyzer which can be ignored or will be suppressed via the `GlobalSuppressions.cs` file. 
+
 ## Contributing
 
 You can participate in this project by [submitting bugs and feature requests](https://github.com/PLCnext/CSharpExamples/issues).

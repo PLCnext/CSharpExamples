@@ -35,7 +35,7 @@ namespace ExampleLib
         [InOut, DataType("ANY_NUM")]
         public Any RESULT;
 
-        [Output]
+        [Output, DataType("UDINT")]
         public uint SIZE_OF_VALUE;
 
         [Initialization]

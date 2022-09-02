@@ -29,7 +29,7 @@ namespace ExampleLib
         [Output, DataType("DWORD")]
         public uint RESULT;
 
-        [Output]
+        [Output, DataType("UDINT")]
         public uint SIZE_OF_VALUE;
 
         [Initialization]

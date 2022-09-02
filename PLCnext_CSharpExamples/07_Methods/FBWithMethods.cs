@@ -9,6 +9,8 @@
 
 using Iec61131.Engineering.Prototypes.Methods;
 using Iec61131.Engineering.Prototypes.Types;
+using Iec61131.Engineering.Prototypes.Variables;
+using Iec61131.Engineering.Prototypes.Common;
 
 namespace ExampleLib
 {
@@ -31,24 +33,24 @@ namespace ExampleLib
         //the attribute "User" indicates a method for the PLCnext Engineer
         //and make it available for the user in IEC code
         [User]
-        public void SetX([Input]int x)
+        public void SetX([Input, DataType("DINT")] int x)
         {
             CurrentPosition.x = x;
         }
 
         [User]
-        public void SetY([Input]int y)
+        public void SetY([Input, DataType("DINT")] int y)
         {
             CurrentPosition.y = y;
         }
 
-        [User]
+        [User, DataType("DINT")]
         public int GetX()
         {
             return CurrentPosition.x;
         }
 
-        [User]
+        [User, DataType("DINT")]
         public int GetY()
         {
             return CurrentPosition.y;
@@ -60,16 +62,5 @@ namespace ExampleLib
         {
             GetPosition = CurrentPosition;
         }
-
-        // NOT SUPPORTED: Complex data types as return value
-#pragma warning disable CSADD022
-
-        [User]
-        public Position NotSupported_GetPositionReturningTheStructure()
-        {
-            return CurrentPosition;
-        }
-
-#pragma warning restore CSADD022
     }
 }

@@ -10,13 +10,16 @@
 using Iec61131.Engineering.Prototypes.Methods;
 using Iec61131.Engineering.Prototypes.Types;
 using Iec61131.Engineering.Prototypes.Variables;
+using Iec61131.Engineering.Prototypes.Common;
 
 namespace ExampleLib
 {
     [Structure]
     public struct FUExampleStruct
     {
+        [DataType("DINT")]
         public int a;
+        [DataType("DINT")]
         public int b;
     }
 

@@ -8,13 +8,8 @@
 #endregion
 
 
-
-
-using System;
 using System.Iec61131Lib;
 using System.Collections.Generic;
-using Eclr;
-
 using Iec61131.Engineering.Prototypes.Common;
 using Iec61131.Engineering.Prototypes.Methods;
 using Iec61131.Engineering.Prototypes.Types;
@@ -30,11 +25,11 @@ namespace DcgBestPracticePattern2
     [FunctionBlock]
     public class SlaveFB2
     {
-        [VAR_INPUT("BOOL")]
+        [Input, DataType("BOOL")]
         public bool In;
-        [VAR_OUTPUT("DINT")]
+        [Input, DataType("DINT")]
         public int Handle;
-        [VAR_OUTPUT("DINT")]
+        [Output, DataType("DINT")]
         public int Value;
 
         // Do not permanently put a Function Block into a Container. 
@@ -150,11 +145,10 @@ namespace DcgBestPracticePattern2
             }
             return handle;
         }
-        internal void Remove(int handle)
+        internal bool Remove(int handle)
         {
             int fbHash = 0;
-            SlaveFbImpl fb;
-            if (fbs.TryGetValue(handle, out fb))
+            if (fbs.TryGetValue(handle, out SlaveFbImpl fb))
             {
                 fbHash = fb.GetHashCode();
             }
@@ -162,6 +156,11 @@ namespace DcgBestPracticePattern2
             {
                 fbs.Remove(handle);
             }
+            if (fbHash != 0)
+            {
+                return false;
+            }
+            return true;
         }
         internal SlaveFbImpl Get(int handle)
         {
@@ -174,26 +173,26 @@ namespace DcgBestPracticePattern2
         }
     }
 
-    [FUNCTION_BLOCK]
+    [FunctionBlock]
     public class MasterFB2
     {
-        [VAR_INPUT("BOOL")]
+        [Input, DataType("BOOL")]
         public bool In;
-        [VAR_INPUT("DINT")]
+        [Input, DataType("DINT")]
         public int Handle;
-        [VAR_INPUT("DINT")]
+        [Input, DataType("DINT")]
         public int Job;
-        [VAR_OUTPUT("BOOL")]
+        [Output, DataType("BOOL")]
         public bool Done;
 
         public MasterFB2()
         {
         }
-
+        [Initialization]
         public void __Init()
         {
         }
-
+        [Execution]
         public void __Process()
         {
             Done = false;

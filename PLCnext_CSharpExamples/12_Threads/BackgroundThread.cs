@@ -39,9 +39,11 @@ namespace ExampleLib
             // serverObject.ThreadBody method using a
             // ThreadStart delegate.
             ThreadStart threadStarter = new ThreadStart(BackgroundServerThread.ThreadBody);
-            StaticCaller = new Thread(threadStarter);
-            StaticCaller.Priority = ThreadPriority.Lowest;
-            StaticCaller.Name = "backgroundThread";
+            StaticCaller = new Thread(threadStarter)
+            {
+                Priority = ThreadPriority.Lowest,
+                Name = "backgroundThread"
+            };
 
             StaticCaller.Start();
         }

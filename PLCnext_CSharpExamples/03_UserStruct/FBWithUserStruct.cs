@@ -10,6 +10,7 @@
 using Iec61131.Engineering.Prototypes.Methods;
 using Iec61131.Engineering.Prototypes.Types;
 using Iec61131.Engineering.Prototypes.Variables;
+using Iec61131.Engineering.Prototypes.Common;
 
 namespace ExampleLib
 {
@@ -18,8 +19,9 @@ namespace ExampleLib
     public struct Position
     {
         // the fields must be public as well as the struct itself
+        [DataType("DINT")]
         public int x;
-
+        [DataType("DINT")]
         public int y;
     }
 

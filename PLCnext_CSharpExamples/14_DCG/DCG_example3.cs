@@ -158,8 +158,10 @@ namespace DcgBestPracticePattern5
             if (worker == null)
             {
                 ThreadStart start = new ThreadStart(TaskBody);
-                worker = new Thread(start);
-                worker.Priority = ThreadPriority.Lowest;
+                worker = new Thread(start)
+                {
+                    Priority = ThreadPriority.Lowest
+                };
                 worker.Start();
                 return true;
             }

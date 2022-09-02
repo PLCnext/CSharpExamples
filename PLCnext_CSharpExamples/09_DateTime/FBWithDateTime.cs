@@ -22,7 +22,7 @@ namespace ExampleLib
         [Input]
         public bool EN;
 
-        [Output]
+        [Output, DataType("LINT")]
         public long UTC_TICKS;
 
         [Output]
@@ -70,19 +70,19 @@ namespace ExampleLib
         [Input, DataType("LDATE_AND_TIME")]
         public long Date_and_Time;
 
-        [Output]
+        [Output, DataType("DINT")]
         public int int_TIME;
 
-        [Output]
+        [Output, DataType("LINT")]
         public long lLTIME;
 
-        [Output]
+        [Output, DataType("LINT")]
         public long lLDATE;
 
-        [Output]
+        [Output, DataType("LINT")]
         public long lLTOD;
 
-        [Output]
+        [Output, DataType("LINT")]
         public long lLDT;
 
         [Output, DataType("TIME")]

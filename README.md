@@ -49,7 +49,7 @@ Most of the examples are ready to build and try with the PLCnext Toolchain C# Ex
 5. Select all added files and add them to the project via right click "Include in Project".
 6. To be able to build, enable unsafe code in the Project --> Properties --> Build and select "Allow unsafe code"
 
-> **Note:** There will be some Warnings and Massages from the Code Analyzer which can be ignored or will be suppressed via the `GlobalSuppressions.cs` file. 
+> **Note:** There will be some Warnings and Massages from the Code Analyzer which can be ignored or will be suppressed via the `GlobalSuppressions.cs` file.
 
 ## Contributing
 

@@ -50,8 +50,8 @@ namespace ExampleLib
         [Execution]
         // Set the type of the return value to bool
         public static bool __Process(
-            // Add the class name (function name) as single Output parameter
-            [Output] ref short FU_with_ENENO,
+             // Add the class name (function name) as single output parameter without the "[Output]" attribute.
+            ref short FU_with_ENENO,
             [Input, DataType("WORD")] ushort IN1,
             [Input, DataType("WORD")] ushort IN2)
         {

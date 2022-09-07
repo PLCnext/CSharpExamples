@@ -44,11 +44,11 @@ a '+' must have the optional attribute "DataType" for an unambiguous assignment.
 
 `[OPC]`
 
-PLCnext has an integrated OPC server. The [OPC] attribute adds the related field as a new entry in the server tree, under the root entry ARP.Eclr.
+PLCnext has an integrated OPC server. The `[OPC]` attribute adds the related field as a new entry in the server tree, under the root entry ARP.Eclr.
 
 `[Ehmi]`
 
-The port/variable is visible for the local Web Server and can be read/written in the HMI application.
+The port/variable is visible for the local Web Server and can be read and written in the HMI application.
 
 `[ProfiCloud]`
 
@@ -56,11 +56,11 @@ The port/variable is visible for Proficloud services and can therefore be subscr
 
 `[Redundant]`
 
-This attribute is only relevant for PLCnext Technology controllers with redundancy function. Enables/disables the synchronization of variables and ports between the PRIMARY and BACKUP controller. When enabled (set for a variable), the PRIMARY controller transfers the value to be synchronized to the BACKUP controller before each cycle.
+This attribute is only relevant for PLCnext Technology controllers with redundancy function. It enables the synchronization of variables and ports between the PRIMARY and BACKUP controller. The PRIMARY controller transfers the value to be synchronized to the BACKUP controller before each cycle.
 
-`[GdsRetain]`
+`[Retain]`
 
-This attribute allowes variable and port values to be kept during power down so these values can be restored on power return. For more information you can read about retain handling [here](https://www.plcnext.help/te/PLCnext_Runtime/Extended_retain_handling.htm) in the PLCnext Info Center. Alternatively, the Retain attribute can be used, but it is not allowed to mix GdsRetain and Retain within the POU.
+This attribute allowes fields of classes attributed with `[Program]` or `[FunctionBlock]` to be kept during power down so these values can be restored on power return. For more information you can read about retain handling in the [PLCnext Info Center](https://www.plcnext.help/te/PLCnext_Runtime/Extended_retain_handling.htm). Alternatively, the GdsRetain attribute can be used, but it is not allowed to mix GdsRetain and Retain within the POU.
 
 `[Hidden]`
 
@@ -68,4 +68,12 @@ This attribute hides user defined data types (arrays, structures, enumerations, 
 
 `[NotOverridable]`
 
-It is possible to override program organization units in a PLCnext Engineer project to change their functionality. The NotOverridable attribute can be used to prevent this for specific POUs.
+It is possible to override program organization units in a PLCnext Engineer project to change their functionality. The `[NotOverridable]` attribute can be used to prevent this for specific POUs. It is possible to override program organization units written in C# with a POU of the same name and parameters in PLCnext Engineer. Use case is to modify functionality without having access to the sources of the library; e.g. in a maintenance test environment. The NotOverridable attribute can be used to prevent the POU from beeing overridden inside PLCnext Engineer.
+
+`[Invisible]`
+
+This attribute added to inputs/outputs/method parameters hides the pin on graphical editors in the PLCnext Engineer. Direct access is still possible.
+
+`[Local]`
+
+This attribute on public FB fields exposes that field to the user in IEC code worksheets. The field is accessible through the FB instance.

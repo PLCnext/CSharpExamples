@@ -25,7 +25,7 @@ namespace ExampleLib
         [Input, DataType("ANY_BIT")]
         public Any VALUE;
 
-        [Output]
+        [Output, DataType("UDINT")]
         public uint SIZE_OF_VALUE;
 
         // Output parameters are not supported as ANY. Use InOut parameters instead.

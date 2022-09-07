@@ -22,7 +22,7 @@ namespace ExampleLib
         [Input]
         public bool EN;
 
-        [Output]
+        [Output, DataType("LINT")]
         public long UTC_TICKS;
 
         [Output]
@@ -52,9 +52,9 @@ namespace ExampleLib
     [FunctionBlock]
     public class FB_DateTime_conversion
     {
-        //uint#0 equals TIME#00:00:00
+        //int#0 equals TIME#00:00:00
         [Input, DataType("TIME")]
-        public uint Time;
+        public int Time;
 
         [Input, DataType("LTIME")]
         public long LTime;
@@ -70,23 +70,23 @@ namespace ExampleLib
         [Input, DataType("LDATE_AND_TIME")]
         public long Date_and_Time;
 
-        [Output]
-        public uint uint_TIME;
+        [Output, DataType("DINT")]
+        public int int_TIME;
 
-        [Output]
+        [Output, DataType("LINT")]
         public long lLTIME;
 
-        [Output]
+        [Output, DataType("LINT")]
         public long lLDATE;
 
-        [Output]
+        [Output, DataType("LINT")]
         public long lLTOD;
 
-        [Output]
+        [Output, DataType("LINT")]
         public long lLDT;
 
         [Output, DataType("TIME")]
-        public uint out_TIME;
+        public int out_TIME;
 
         [Output, DataType("LTIME")]
         public long out_LTIME;
@@ -111,7 +111,7 @@ namespace ExampleLib
         [Execution]
         public void __Process()
         {
-            uint_TIME = out_TIME = Time;
+            int_TIME = out_TIME = Time;
             lLTIME = out_LTIME = LTime;
             lLDATE = out_LDATE = LDate;
             lLTOD = out_LTOD = Time_of_Day;

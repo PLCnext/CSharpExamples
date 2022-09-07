@@ -32,8 +32,8 @@ namespace ExampleLib
 
         public void Init()
         {
-            s.Empty();
             s.maximumLength = 200;
+            s.Empty();
         }
     }
 

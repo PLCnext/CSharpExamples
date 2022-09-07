@@ -35,6 +35,7 @@ namespace ExampleLib
         public void Init()
         {
             s.m_cap = 200;
+            s.Empty();
         }
     }
 

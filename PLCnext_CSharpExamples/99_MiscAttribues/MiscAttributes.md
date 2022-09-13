@@ -48,7 +48,7 @@ PLCnext has an integrated OPC server. The `[OPC]` attribute adds the related fie
 
 `[Ehmi]`
 
-The port/variable is visible for the local Web Server and can be read and written in the HMI application.
+The port/variable is visible for the local Web Server and can be read and written via the REST interface.
 
 `[ProfiCloud]`
 

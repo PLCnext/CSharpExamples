@@ -10,7 +10,7 @@ For example, `uint` in C# is `UDINT` in IEC.
 But if you want an input to be of data type  `DWORD`, which is `uint` in C#,
 the `DataType("DWORD")` attribute is needed.
 For `ANY` parameters, the `DataType()` attribute must always be used.
-For more information on data type mapping, read the [Readme.txt](../Readme.txt),
+For more information on data type mapping, read the "Readme.txt",
 available in every Visual Studio C# PLCnext project.
 
 ```cs

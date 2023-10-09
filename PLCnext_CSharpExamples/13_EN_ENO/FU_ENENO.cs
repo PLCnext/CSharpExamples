@@ -30,12 +30,10 @@ namespace ExampleLib
             [Input, DataType("INT")] short IN1,
             [Input, DataType("INT")] short IN2)
         {
+            // TODO: Write the logic of the function
             // Make sure the return value is well defined
             short Function1 = (short) (IN1 + IN2);
 
-            //
-            // TODO: Write the logic of the function
-            //
             // Return the result
             return Function1;
         }
@@ -44,6 +42,8 @@ namespace ExampleLib
     /// <summary>
     /// Function with ENO handled inside the function
     /// </summary>
+    // Mark the class with [Eno] attribute
+    [Eno]
     [Function]
     public static class FU_with_ENENO
     {
@@ -58,14 +58,37 @@ namespace ExampleLib
             // Make sure the Output value is well defined
             FU_with_ENENO = 0;
 
-            //
-            // TODO: Write the logic of the function
+            // TODO: Write the logic of the function. 
+            // This sets the output to the value even if the result isn't valid. Eno will mark it as invalid if the check below failes.
+            // This is a typical use case. If this is not wanted, put the allocation into the "if". 
+            FU_with_ENENO = (short) (IN1 + IN2);
             // and implement the condition
             // for changing ENO to false e.g.
+
             if (IN1 < IN2)
                 return false;
 
             // Return ENO
+            return true;
+        }
+    }
+
+    /// <summary>
+    /// Function without ENO and bool as function result
+    /// </summary>
+    [Function]
+    public static class FU_wo_ENENO_bool
+    {
+        [Execution]
+        // Set the type of the return value to bool and not additional output
+        public static bool __Process(
+            [Input, DataType("WORD")] ushort IN1,
+            [Input, DataType("WORD")] ushort IN2)
+        {
+
+            // TODO: Write the logic of the function for the return type of bool
+            if (IN1 < IN2)
+                return false;
             return true;
         }
     }

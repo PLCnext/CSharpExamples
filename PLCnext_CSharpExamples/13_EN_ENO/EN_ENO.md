@@ -23,4 +23,7 @@ To fullfill the standard, the following rules have to be considered.
 
 ## EN/ENO in Functions
 
-The C# code has not to define the EN/ENO parameters. If they are not available, they cannot be used inside the function like in the FB but the whole EN/ENO functionality is handled and added by the IEC compiler itself.  If ENO shall be set to FALSE by the function, the prototype must be defined with a bool return value and the function result as first parameter marked with an [Output] attribute.
+The function class has to be attributed with "[Eno]".
+If ENO shall be set to FALSE by the function, the prototype must be defined with a bool return value and for the function output the class/function name need to be used for the first parameter as reference.
+
+The C# code has not to handle the EN/ENO parameters at all. If there is no need of manipulating ENO by the function, the EN/ENO functionality is handled and added by the IEC compiler itself and always returns "TRUE".

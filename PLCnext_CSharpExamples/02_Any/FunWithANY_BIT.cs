@@ -9,24 +9,28 @@
 
 using Iec61131.Engineering.Prototypes.Common;
 using Iec61131.Engineering.Prototypes.Methods;
+using Iec61131.Engineering.Prototypes.Pragmas;
 using Iec61131.Engineering.Prototypes.Types;
 using Iec61131.Engineering.Prototypes.Variables;
+using System;
 using System.Iec61131Lib;
+using System.Runtime.InteropServices;
 
 namespace ExampleLib
 {
     /// <summary>
     /// The example limits a value into a defined range
     /// </summary>
-    [Function, DataType("ANY_BIT")]
+    [Function, DataType("LWORD")]
     public static class Fun_with_ANY_BIT
     {
         // All Any parameters must be passed by ref!
         [Execution]
-        public unsafe static void __Process(
-            [DataType("ANY")] ref Any Fun_with_ANY_BIT,
+        public unsafe static ulong __Process(
             [Input, DataType("ANY_BIT")] ref Any VALUE)
         {
+            ulong retValue = 0;
+
             // get the size of the connected value type
             uint SIZE_OF_VALUE = VALUE.nLength;
 
@@ -39,35 +43,29 @@ namespace ExampleLib
             if (code == Eclr.TypeCode.Int16)    // short (2 bytes)
             {
                 short tempValue = *((short*)VALUE.pValue);
-                short* pResult = (short*)Fun_with_ANY_BIT.pValue;
-
-                *pResult = tempValue;
+                retValue = (ulong)tempValue;
             }
             else if (code == Eclr.TypeCode.UInt16)  // unsigned short (2 bytes)
             {
                 ushort tempValue = *((ushort*)VALUE.pValue);
-                ushort* pResult = (ushort*)Fun_with_ANY_BIT.pValue;
-
-                *pResult = tempValue;
+                retValue = (ulong)tempValue;
             }
             else if (code == Eclr.TypeCode.Int32)   // int (4 Bytes)
             {
                 int tempValue = *((int*)VALUE.pValue);
-                int* pResult = (int*)Fun_with_ANY_BIT.pValue;
-
-                *pResult = tempValue;
+                retValue = (ulong)tempValue;
             }
             else if (code == Eclr.TypeCode.UInt32)  // unsigned (4 Bytes)
             {
                 uint tempValue = *((uint*)VALUE.pValue);
-                uint* pResult = (uint*)Fun_with_ANY_BIT.pValue;
-
-                *pResult = tempValue;
+                retValue = (ulong)tempValue;
             }
             else
             {
                 // ...
             }
+
+            return retValue;
         }
     }
 }

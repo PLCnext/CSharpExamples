@@ -62,6 +62,13 @@ This attribute is only relevant for PLCnext Technology controllers with redundan
 
 This attribute allowes fields of classes attributed with `[Program]` or `[FunctionBlock]` to be kept during power down so these values can be restored on power return. For more information you can read about retain handling in the [PLCnext Info Center](https://www.plcnext.help/te/PLCnext_Runtime/Extended_retain_handling.htm). Alternatively, the GdsRetain attribute can be used, but it is not allowed to mix GdsRetain and Retain within the POU.
 
+`[Local]`
+
+This attribute on public FB fields exposes that field to the user in IEC code worksheets. The field is accessible through the FB instance.
+_______________________
+
+For the following attributes are defined in the `Iec61131.Engineering.Prototypes.Pragmas`. The according include is set since PLCnext toolchain version 2023.0 and need to be added in older projects manually.
+
 `[Hidden]`
 
 This attribute hides user defined data types (arrays, structures, enumerations, strings) and program organization units (functions, function blocks, programs) from Type Hierarchy and IntelliSense.
@@ -72,8 +79,4 @@ It is possible to override program organization units in a PLCnext Engineer proj
 
 `[Invisible]`
 
-This attribute added to inputs/outputs/method parameters hides the pin on graphical editors in the PLCnext Engineer. Direct access is still possible.
-
-`[Local]`
-
-This attribute on public FB fields exposes that field to the user in IEC code worksheets. The field is accessible through the FB instance.
+This attribute added to inputs and outputs of function blocks hides the pin on graphical editors in the PLCnext Engineer. Direct access is still possible.

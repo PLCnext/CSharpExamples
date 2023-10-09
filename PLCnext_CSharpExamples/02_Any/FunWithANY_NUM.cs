@@ -9,34 +9,38 @@
 
 using Iec61131.Engineering.Prototypes.Common;
 using Iec61131.Engineering.Prototypes.Methods;
+using Iec61131.Engineering.Prototypes.Pragmas;
 using Iec61131.Engineering.Prototypes.Types;
 using Iec61131.Engineering.Prototypes.Variables;
+using System;
 using System.Iec61131Lib;
+using System.Runtime.InteropServices;
 
 namespace ExampleLib
 {
     /// <summary>
     /// The example limits a value into a defined range
     /// </summary>
-    [Function, DataType("ANY_NUM")]
+    [Function]
     public static class Fun_with_ANY_NUM
     {
         // All Any parameters must be passed by ref!
         [Execution]
-        public unsafe static void __Process(
-            [DataType("ANY")] ref Any Fun_with_ANY_NUM,
+        public unsafe static bool __Process(
             [Input, DataType("ANY_NUM")] ref Any VALUE,
             [Input, DataType("ANY_NUM")] ref Any MIN,
             [Input, DataType("ANY_NUM")] ref Any MAX)
         {
+            bool retValue = false;
+
             // get the size of the connected value type
             uint SIZE_OF_VALUE = VALUE.nLength;
 
             // Important due to unsafe programming:
             // Check whether all parameters have the same data type!!!
-            if (VALUE.pRuntimeTypeHandle != Fun_with_ANY_NUM.pRuntimeTypeHandle || VALUE.pRuntimeTypeHandle != MIN.pRuntimeTypeHandle || VALUE.pRuntimeTypeHandle != MAX.pRuntimeTypeHandle)
+            if (VALUE.pRuntimeTypeHandle != MIN.pRuntimeTypeHandle || VALUE.pRuntimeTypeHandle != MAX.pRuntimeTypeHandle)
             {
-                return;
+                return false;
             }
 
             // Get the element type constants associate to the runtime type handle.
@@ -50,81 +54,43 @@ namespace ExampleLib
                 short tempValue = *((short*)VALUE.pValue);
                 short tempMin = *((short*)MIN.pValue);
                 short tempMax = *((short*)MAX.pValue);
-                short* pResult = (short*)Fun_with_ANY_NUM.pValue;
 
-                if (tempValue < tempMin)
-                {
-                    tempValue = tempMin;
-                }
-
-                if (tempValue > tempMax)
-                {
-                    tempValue = tempMax;
-                }
-
-                *pResult = tempValue;
+                if (tempValue >= tempMin && tempValue <= tempMax)
+                    retValue = true;
             }
             else if (code == Eclr.TypeCode.UInt16)  // unsigned short (2 bytes)
             {
                 ushort tempValue = *((ushort*)VALUE.pValue);
                 ushort tempMin = *((ushort*)MIN.pValue);
                 ushort tempMax = *((ushort*)MAX.pValue);
-                ushort* pResult = (ushort*)Fun_with_ANY_NUM.pValue;
 
-                if (tempValue < tempMin)
-                {
-                    tempValue = tempMin;
-                }
-
-                if (tempValue > tempMax)
-                {
-                    tempValue = tempMax;
-                }
-
-                *pResult = tempValue;
+                if (tempValue >= tempMin && tempValue <= tempMax)
+                    retValue = true;
             }
             else if (code == Eclr.TypeCode.Int32)   // int (4 Bytes)
             {
                 int tempValue = *((int*)VALUE.pValue);
                 int tempMin = *((int*)MIN.pValue);
                 int tempMax = *((int*)MAX.pValue);
-                int* pResult = (int*)Fun_with_ANY_NUM.pValue;
 
-                if (tempValue < tempMin)
-                {
-                    tempValue = tempMin;
-                }
-
-                if (tempValue > tempMax)
-                {
-                    tempValue = tempMax;
-                }
-
-                *pResult = tempValue;
+                if (tempValue >= tempMin && tempValue <= tempMax)
+                    retValue = true;
             }
             else if (code == Eclr.TypeCode.UInt32)  // unsigned (4 Bytes)
             {
                 uint tempValue = *((uint*)VALUE.pValue);
                 uint tempMin = *((uint*)MIN.pValue);
                 uint tempMax = *((uint*)MAX.pValue);
-                uint* pResult = (uint*)Fun_with_ANY_NUM.pValue;
 
-                if (tempValue < tempMin)
-                {
-                    tempValue = tempMin;
-                }
-
-                if (tempValue > tempMax)
-                {
-                    tempValue = tempMax;
-                }
-
-                *pResult = tempValue;
+                if (tempValue >= tempMin && tempValue <= tempMax)
+                    retValue = true;
             }
             else
             {
                 // ...
             }
+
+            return retValue;
         }
     }
 }

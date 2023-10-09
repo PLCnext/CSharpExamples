@@ -16,7 +16,7 @@ The [`CSharpExamples`](https://github.com/PLCnext/CSharpExamples) repository is 
 |\#| Topic | Content
 | ----- | ------ | ------
 |[01](PLCnext_CSharpExamples/01_Basics/)| [Basics](PLCnext_CSharpExamples/01_Basics/Basics.md) | Implements a basic counter. ([Basics.cs](PLCnext_CSharpExamples/01_Basics/Basics.cs))
-|[02](PLCnext_CSharpExamples/02_Any/)| [Any](PLCnext_CSharpExamples/02_Any/Any.md) | Function and function block with "ANY" parameter. ([FunWithAny_BIT.cs](FunWithAny_BIT.cs), [FunWithAny_NUM.cs](FunWithAny_NUM.cs), [FB1WithAny_BIT.cs](FB1WithAny_BIT.cs), [FB1WithAny_NUM.cs](FB1WithAny_NUM.cs), [FB2WithAny_BIT.cs](FB2WithAny_BIT.cs), [FB2WithAny_NUM.cs](FB2WithAny_NUM.cs))
+|[02](PLCnext_CSharpExamples/02_Any/)| [ANY](PLCnext_CSharpExamples/02_Any/Any.md) | Function and function block with "ANY" parameter. ([FunWithANY_BIT.cs](PLCnext_CSharpExamples/02_Any/FunWithANY_BIT.cs), [FunWithANY_NUM.cs](PLCnext_CSharpExamples/02_Any/FunWithANY_NUM.cs), [FB1WithANY_BIT.cs](PLCnext_CSharpExamples/02_Any/FB1WithANY_BIT.cs), [FB1WithANY_NUM.cs](PLCnext_CSharpExamples/02_Any/FB1WithANY_NUM.cs), [FB2WithANY_BIT.cs](PLCnext_CSharpExamples/02_Any/FB2WithANY_BIT.cs), [FB2WithANY_NUM.cs](PLCnext_CSharpExamples/02_Any/FB2WithANY_NUM.cs))
 |[03](PLCnext_CSharpExamples/03_UserStruct/)| [User Struct](PLCnext_CSharpExamples/03_UserStruct/UserStruct.md) | Function block with a user struct. ([FBWithUserStruct.cs](PLCnext_CSharpExamples/03_UserStruct/FBWithUserStruct.cs))
 |[04](PLCnext_CSharpExamples/04_UserArray/)| [User Array](PLCnext_CSharpExamples/04_UserArray/UserArray.md) | Function block with a user array. ([FBWithUserArray.cs](PLCnext_CSharpExamples/04_UserArray/FBWithUserArray.cs))
 |[05](PLCnext_CSharpExamples/05_IECString/)| [IEC String](PLCnext_CSharpExamples/05_IECString/IECString.md) | Use type IecStringEx for strings in PLCnext Engineer. ([FBWithString.cs](PLCnext_CSharpExamples/05_IECString/FBWithString.cs))
@@ -28,26 +28,26 @@ The [`CSharpExamples`](https://github.com/PLCnext/CSharpExamples) repository is 
 |[10](PLCnext_CSharpExamples/10_UserEnumeration/)| [User Enumeration](PLCnext_CSharpExamples/10_UserEnumeration/UserEnumeration.md) | Shows how to add and use user enumeration. ([UserEnumeration.cs](PLCnext_CSharpExamples/10_UserEnumeration/UserEnumeration.cs))
 |[11](PLCnext_CSharpExamples/11_Programs/)| [Programs](PLCnext_CSharpExamples/11_Programs/Programs.md) | Provides a template for programs in C#. ([Program.cs](PLCnext_CSharpExamples/11_Programs/Program.cs))
 |[12](PLCnext_CSharpExamples/12_Threads/)| [Threads](PLCnext_CSharpExamples/12_Threads/Threads.md) | Functionblock to start a thread. ([Threads.cs](PLCnext_CSharpExamples/12_Threads/Threads.cs))
-|[12.1](PLCnext_CSharpExamples/12_Threads/)| [Background Threads](PLCnext_CSharpExamples/12_Threads/BackgroundThread.md) | Functionblock to start a thread. ([BackgroundThread.cs](PLCnext_CSharpExamples/12_Threads/BackgroundThreads.cs))
+|[12.1](PLCnext_CSharpExamples/12_Threads/)| [Background Threads](PLCnext_CSharpExamples/12_Threads/BackgroundThread.md) | Functionblock to start a thread. ([BackgroundThread.cs](PLCnext_CSharpExamples/12_Threads/BackgroundThread.cs))
 |[13](PLCnext_CSharpExamples/13_EN_ENO/)| [EN\/ENO](PLCnext_CSharpExamples/13_EN_ENO/EN_ENO.md) | Using EN\/ENO in PLCnext C# FU/FBs. ([FU_ENENO.cs](PLCnext_CSharpExamples/13_EN_ENO/FU_ENENO.cs), [FB_ENENO.cs](PLCnext_CSharpExamples/13_EN_ENO/FB_ENENO.cs))
-|[14](PLCnext_CSharpExamples/14_DCG/)| [Dowload Change](PLCnext_CSharpExamples/14_DCG/DCG.md) | Make your C\# code Download Change capable. ([FU_ENENO.cs](PLCnext_CSharpExamples/14_DCG/FU_ENENO.cs), [FB_ENENO.cs](PLCnext_CSharpExamples/14_DCG/FB_ENENO.cs))
+|[14](PLCnext_CSharpExamples/14_DCG/)| [Dowload Change](PLCnext_CSharpExamples/14_DCG/DCG.md) | Make your C\# code Download Change capable. ([DCG_example1.cs](PLCnext_CSharpExamples/14_DCG/DCG_example1.cs), [DCG_example2.cs](PLCnext_CSharpExamples/14_DCG/DCG_example2.cs), [DCG_example3.cs](PLCnext_CSharpExamples/14_DCG/DCG_example3.cs))
 |[99](PLCnext_CSharpExamples/99_MiscAttribues/)| [MiscAttributes](PLCnext_CSharpExamples/99_MiscAttribues/MiscAttributes.md) | Making data visible in OPC UA and when to use explicit IEC data type definition. ([MiscAttributes](PLCnext_CSharpExamples/99_MiscAttribues/MiscAttributes.cs))
 
 ## Getting Started
 
 Find all information how to start coding C# for PLCnext Technology in our [Community](https://www.plcnext-community.net/index.php?option=com_content&view=category&layout=blog&id=74&Itemid=350&lang=en) or watch the [Youtube Playlist](https://www.youtube.com/playlist?list=PLXpIBdAgtoRKO3lWQAQweje1oC7JwJcnM) on our [Technical Support Channel](https://www.youtube.com/c/PhoenixContactTechnicalSupport)
 
-## Creating Example Project
+## Creating C# Example Project
 
-Most of the examples are ready to build and try with the PLCnext Toolchain C# Extension for Visual Studio. Follow the steps to get started:
+Most of the examples in the `PLCnext_CSharpExamples` folder are ready to build and try with the PLCnext Toolchain C# Extension for Visual Studio. Follow the steps to get started:
 
 1. Make sure you have all the [required installations](https://www.plcnext.help/te/Programming/Cpp/Cpp_programming/Required_Installations_2021_6.htm?tocid=13_4_3_2).
-2. Start a new [Visual Studio 2019 project](https://www.plcnext.help/te/Programming/Csharp/Csharp_programming/Creating_a_Csharp_firmware_library.htm) (only step 1 is needed).
+2. Start a new [Visual Studio project](https://www.plcnext.help/te/Programming/Csharp/Csharp_programming/Creating_a_Csharp_firmware_library.htm) (only step 1 is needed).
 3. Copy all files from the `PLCnext_CSharpExamples` folder to your project folder.
 4. In Visual Studio Solution Explorer enable "Show All Files" (see red square in the picture)
 ![Add2VS](Add_Examples2Project.png)
-5. Select all added files and add them to the project via right click "Include in Project".
-6. To be able to build, enable unsafe code in the Project --> Properties --> Build and select "Allow unsafe code"
+1. Select all added files and add them to the project via right click "Include in Project".
+2. To be able to build, enable unsafe code in the Project --> Properties --> Build and select "Allow unsafe code"
 
 > **Note:** There will be some Warnings and Massages from the Code Analyzer which can be ignored or will be suppressed via the `GlobalSuppressions.cs` file.
 

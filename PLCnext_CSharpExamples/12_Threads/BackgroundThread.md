@@ -1,6 +1,6 @@
-﻿# Threads
+﻿# Background Threads
 
-[Threads.cs](Threads.cs)
+[BackgroundThread.cs](BackgroundThread.cs)
 
 Minimal required:
 
@@ -20,9 +20,3 @@ the .Net-Priority 1 or 0.
 The main use of background threads is to separate long lasting tasks from the realtime supervised
 PLC threads. Therefor the tasks are transfered to the low prior thread which sets a "done" flag
 to signalize that a task was done.
-   
-
-
-
-
-

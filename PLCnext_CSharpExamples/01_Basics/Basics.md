@@ -1,5 +1,5 @@
 # Basics
-[basics.cs](basics.cs)
+[Basics.cs](Basics.cs)
 
 The file basic.cs shows the basic attributes to make something visible to the PLCnext Engineer.
 

@@ -48,7 +48,8 @@ PLCnext has an integrated OPC server. The `[OPC]` attribute adds the related fie
 
 `[Ehmi]`
 
-The port/variable is visible for the local Web Server and can be read and written via the REST interface.
+The port/variable is visible for the local web server and can be read and written in the HMI application.
+> WIP: The `[Ehmi]` tag is currently not working. Please map your C# variable to an IEC-variable. This can then be made available to the local web server.
 
 `[ProfiCloud]`
 

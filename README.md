@@ -35,14 +35,14 @@ The [`CSharpExamples`](https://github.com/PLCnext/CSharpExamples) repository is 
 
 ## Getting Started
 
-Find all information how to start coding C# for PLCnext Technology in our [Community](https://www.plcnext-community.net/index.php?option=com_content&view=category&layout=blog&id=74&Itemid=350&lang=en) or watch the [Youtube Playlist](https://www.youtube.com/playlist?list=PLXpIBdAgtoRKO3lWQAQweje1oC7JwJcnM) on our [Technical Support Channel](https://www.youtube.com/c/PhoenixContactTechnicalSupport)
+Find all information how to start coding C# for PLCnext Technology in our [Community](https://www.plcnext-community.net/infocenter/programming/csharp/csharp_in_plcnext) or watch the [Youtube Playlist](https://www.youtube.com/playlist?list=PLXpIBdAgtoRKO3lWQAQweje1oC7JwJcnM) on our [Technical Support Channel](https://www.youtube.com/c/PhoenixContactTechnicalSupport)
 
 ## Creating C# Example Project
 
 Most of the examples in the `PLCnext_CSharpExamples` folder are ready to build and try with the PLCnext Toolchain C# Extension for Visual Studio. Follow the steps to get started:
 
-1. Make sure you have all the [required installations](https://www.plcnext.help/te/Programming/Cpp/Cpp_programming/Required_Installations_2021_6.htm?tocid=13_4_3_2).
-2. Start a new [Visual Studio project](https://www.plcnext.help/te/Programming/Csharp/Csharp_programming/Creating_a_Csharp_firmware_library.htm) (only step 1 is needed).
+1. Make sure you have all the [required installations](https://plcnext.help/te/Programming/Csharp/Csharp_Required_installations.htm).
+2. Start a new [Visual Studio project](https://plcnext.help/te/Programming/Csharp/Creating_a_Csharp_function_block_library.htm) (only step 1 is needed).
 3. Copy all files from the `PLCnext_CSharpExamples` folder to your project folder.
 4. In Visual Studio Solution Explorer enable "Show All Files" (see red square in the picture)
 ![Add2VS](Add_Examples2Project.png)
@@ -60,7 +60,7 @@ Furthermore you can help us by discussing issues and let us know where you have 
 
 You can give feedback to this project in different ways:
 
-* Ask a question in our [Forum](https://www.plcnext-community.net/index.php?option=com_easydiscuss&view=categories&Itemid=221&lang=en).
+* Ask a question in our [Forum](https://www.plcnext-community.net/forum).
 * Request a new feature on [GitHub](CONTRIBUTING.md).
 * Vote for [Popular Feature Requests](https://github.com/PLCnext/CSharpExamples/issues?q=is%3Aopen+is%3Aissue+label%3Afeature-request+sort%3Areactions-%2B1-desc).
 * File a bug in [GitHub Issues](https://github.com/PLCnext/CSharpExamples/issues).

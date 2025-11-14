@@ -26,8 +26,8 @@ namespace ExampleLib
         public Any VALUE;
 
         // Caution: Output parameters are not supported as ANY. Use InOut parameters instead (see FB2WithAny.cs)
-        [Output, DataType("DWORD")]
-        public uint RESULT;
+        [Output, DataType("LWORD")]
+        public ulong RESULT;
 
         [Output, DataType("UDINT")]
         public uint SIZE_OF_VALUE;
@@ -49,32 +49,45 @@ namespace ExampleLib
             Eclr.TypeCode code = (Eclr.TypeCode)Eclr.TypeInfo.GetTypeCode(VALUE.pRuntimeTypeHandle);
 
             // type dependent action
-            if (code == Eclr.TypeCode.Boolean)  // unsigned short (2 bytes)
+            switch (code)
             {
-                ushort tempValue = *((ushort*)VALUE.pValue);
-
-                RESULT = tempValue;
-            }
-            else if (code == Eclr.TypeCode.Byte)  // unsigned int (4 bytes)
-            {
-                uint tempValue = *((uint*)VALUE.pValue);
-
-                RESULT = tempValue;
-            }
-            else if (code == Eclr.TypeCode.UInt16)  // unsigned int (4 bytes)
-            {
-                uint tempValue = *((uint*)VALUE.pValue);
-                RESULT = tempValue;
-            }
-            else if (code == Eclr.TypeCode.UInt32)  // unsigned int (4 bytes)
-            {
-                uint tempValue = *((uint*)VALUE.pValue);
-
-                RESULT = tempValue;
-            }
-            else
-            {
-                // ...
+                case Eclr.TypeCode.Boolean:
+                    {
+                        bool tempValue = *(bool*)VALUE.pValue;
+                        if (tempValue)
+                        {
+                            RESULT = 1;
+                        }
+                        else
+                        {
+                            RESULT = 0;
+                        }
+                        break;
+                    }
+                case Eclr.TypeCode.Byte:
+                    {
+                        byte tempValue = *(byte*)VALUE.pValue;
+                        RESULT = tempValue;
+                        break;
+                    }
+                case Eclr.TypeCode.UInt16:
+                    {
+                        ushort tempValue = *(ushort*)VALUE.pValue;
+                        RESULT = tempValue;
+                        break;
+                    }
+                case Eclr.TypeCode.UInt32:
+                    {
+                        uint tempValue = *(uint*)VALUE.pValue;
+                        RESULT = tempValue;
+                        break;
+                    }
+                case Eclr.TypeCode.UInt64:
+                    {
+                        ulong tempValue = *(ulong*)VALUE.pValue;
+                        RESULT = tempValue;
+                        break;
+                    }
             }
         }
     }

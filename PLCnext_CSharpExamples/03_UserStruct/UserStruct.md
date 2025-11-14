@@ -48,6 +48,24 @@ unsafe public void __Process()
        ...
 ```
 
+## Structures with IECString
+
+To set the string size in any complex datatype like a struct, the .ctor() or .Init() method need to be called inside the Init() method of the complex datatype.
+
+```cs
+    [Structure]
+    public struct Position
+    {
+        public int x;
+        public int y;
+        public IecString80 strName;
+        public void Init()
+        {
+            strName.ctor();
+        }
+    }
+```
+
 ## Two function block variants are implemented
 
 Both function blocks are called with an input and output structure.

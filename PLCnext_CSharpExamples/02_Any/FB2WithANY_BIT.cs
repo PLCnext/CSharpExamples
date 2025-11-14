@@ -40,6 +40,13 @@ namespace ExampleLib
         [Execution]
         public unsafe void __Process()
         {
+            // Important due to unsafe programming:
+            // Check whether all parameters have the same data type!!!
+            if (VALUE.pRuntimeTypeHandle != RESULT.pRuntimeTypeHandle)
+            {
+                return;
+            }
+
             // get the size of the connected value type
             SIZE_OF_VALUE = VALUE.nLength;
 
@@ -49,37 +56,48 @@ namespace ExampleLib
             Eclr.TypeCode code = (Eclr.TypeCode)Eclr.TypeInfo.GetTypeCode(VALUE.pRuntimeTypeHandle);
 
             // type dependent action
-            if (code == Eclr.TypeCode.Boolean)  // unsigned short (2 bytes)
+            switch (code)
             {
-                ushort tempValue = *((ushort*)VALUE.pValue);
-                ushort* pResult = (ushort*)RESULT.pValue;
+                case Eclr.TypeCode.Boolean:
+                    {
+                        bool tempValue = *(bool*)VALUE.pValue;
+                        bool* pResult = (bool*)RESULT.pValue;
 
-                *pResult = tempValue;
-            }
-            else if (code == Eclr.TypeCode.Byte)  // unsigned short (2 bytes)
-            {
-                ushort tempValue = *((ushort*)VALUE.pValue);
-                ushort* pResult = (ushort*)RESULT.pValue;
+                        *pResult = tempValue;
+                        break;
+                    }
+                case Eclr.TypeCode.Byte:
+                    {
+                        byte tempValue = *(byte*)VALUE.pValue;
+                        byte* pResult = (byte*)RESULT.pValue;
 
-                *pResult = tempValue;
-            }
-            else if (code == Eclr.TypeCode.UInt16)  // unsigned short (2 bytes)
-            {
-                ushort tempValue = *((ushort*)VALUE.pValue);
-                ushort* pResult = (ushort*)RESULT.pValue;
+                        *pResult = tempValue;
+                        break;
+                    }
+                case Eclr.TypeCode.UInt16:
+                    {
+                        ushort tempValue = *(ushort*)VALUE.pValue;
+                        ushort* pResult = (ushort*)RESULT.pValue;
 
-                *pResult = tempValue;
-            }
-            else if (code == Eclr.TypeCode.UInt32)  // unsigned int (4 bytes)
-            {
-                uint tempValue = *((uint*)VALUE.pValue);
-                uint* pResult = (uint*)RESULT.pValue;
+                        *pResult = tempValue;
+                        break;
+                    }
+                case Eclr.TypeCode.UInt32:
+                    {
+                        uint tempValue = *(uint*)VALUE.pValue;
+                        uint* pResult = (uint*)RESULT.pValue;
 
-                *pResult = tempValue;
-            }
-            else
-            {
-                // ...
+                        *pResult = tempValue;
+                        break;
+                    }
+                case Eclr.TypeCode.UInt64:
+                    {
+                        ulong tempValue = *(ulong*)VALUE.pValue;
+                        ulong* pResult = (ulong*)RESULT.pValue;
+
+                        *pResult = tempValue;
+                        break;
+                    }
             }
         }
     }

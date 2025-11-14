@@ -9,12 +9,9 @@
 
 using Iec61131.Engineering.Prototypes.Common;
 using Iec61131.Engineering.Prototypes.Methods;
-using Iec61131.Engineering.Prototypes.Pragmas;
 using Iec61131.Engineering.Prototypes.Types;
 using Iec61131.Engineering.Prototypes.Variables;
-using System;
 using System.Iec61131Lib;
-using System.Runtime.InteropServices;
 
 namespace ExampleLib
 {
@@ -49,45 +46,108 @@ namespace ExampleLib
             Eclr.TypeCode code = (Eclr.TypeCode)Eclr.TypeInfo.GetTypeCode(VALUE.pRuntimeTypeHandle);
 
             // type dependent action
-            if (code == Eclr.TypeCode.Int16)    // short (2 bytes)
+            switch (code)
             {
-                short tempValue = *((short*)VALUE.pValue);
-                short tempMin = *((short*)MIN.pValue);
-                short tempMax = *((short*)MAX.pValue);
+                case Eclr.TypeCode.SByte:
+                    {
+                        sbyte tempValue = *(sbyte*)VALUE.pValue;
+                        sbyte tempMin = *(sbyte*)MIN.pValue;
+                        sbyte tempMax = *(sbyte*)MAX.pValue;
 
-                if (tempValue >= tempMin && tempValue <= tempMax)
-                    retValue = true;
-            }
-            else if (code == Eclr.TypeCode.UInt16)  // unsigned short (2 bytes)
-            {
-                ushort tempValue = *((ushort*)VALUE.pValue);
-                ushort tempMin = *((ushort*)MIN.pValue);
-                ushort tempMax = *((ushort*)MAX.pValue);
+                        if (tempValue >= tempMin && tempValue <= tempMax)
+                            retValue = true;
+                        break;
+                    }
+                case Eclr.TypeCode.Byte:
+                    {
+                        byte tempValue = *(byte*)VALUE.pValue;
+                        byte tempMin = *(byte*)MIN.pValue;
+                        byte tempMax = *(byte*)MAX.pValue;
 
-                if (tempValue >= tempMin && tempValue <= tempMax)
-                    retValue = true;
-            }
-            else if (code == Eclr.TypeCode.Int32)   // int (4 Bytes)
-            {
-                int tempValue = *((int*)VALUE.pValue);
-                int tempMin = *((int*)MIN.pValue);
-                int tempMax = *((int*)MAX.pValue);
+                        if (tempValue >= tempMin && tempValue <= tempMax)
+                            retValue = true;
+                        break;
+                    }
+                case Eclr.TypeCode.Int16:
+                    {
+                        short tempValue = *(short*)VALUE.pValue;
+                        short tempMin = *(short*)MIN.pValue;
+                        short tempMax = *(short*)MAX.pValue;
 
-                if (tempValue >= tempMin && tempValue <= tempMax)
-                    retValue = true;
-            }
-            else if (code == Eclr.TypeCode.UInt32)  // unsigned (4 Bytes)
-            {
-                uint tempValue = *((uint*)VALUE.pValue);
-                uint tempMin = *((uint*)MIN.pValue);
-                uint tempMax = *((uint*)MAX.pValue);
+                        if (tempValue >= tempMin && tempValue <= tempMax)
+                            retValue = true;
+                        break;
+                    }
+                case Eclr.TypeCode.UInt16:
+                    {
+                        ushort tempValue = *(ushort*)VALUE.pValue;
+                        ushort tempMin = *(ushort*)MIN.pValue;
+                        ushort tempMax = *(ushort*)MAX.pValue;
 
-                if (tempValue >= tempMin && tempValue <= tempMax)
-                    retValue = true;
-            }
-            else
-            {
-                // ...
+                        if (tempValue >= tempMin && tempValue <= tempMax)
+                            retValue = true;
+                        break;
+                    }
+                case Eclr.TypeCode.Int32:
+                    {
+                        int tempValue = *(int*)VALUE.pValue;
+                        int tempMin = *(int*)MIN.pValue;
+                        int tempMax = *(int*)MAX.pValue;
+
+                        if (tempValue >= tempMin && tempValue <= tempMax)
+                            retValue = true;
+                        break;
+                    }
+                case Eclr.TypeCode.UInt32:
+                    {
+                        uint tempValue = *(uint*)VALUE.pValue;
+                        uint tempMin = *(uint*)MIN.pValue;
+                        uint tempMax = *(uint*)MAX.pValue;
+
+                        if (tempValue >= tempMin && tempValue <= tempMax)
+                            retValue = true;
+                        break;
+                    }
+                case Eclr.TypeCode.Int64:
+                    {
+                        long tempValue = *(long*)VALUE.pValue;
+                        long tempMin = *(long*)MIN.pValue;
+                        long tempMax = *(long*)MAX.pValue;
+
+                        if (tempValue >= tempMin && tempValue <= tempMax)
+                            retValue = true;
+                        break;
+                    }
+                case Eclr.TypeCode.UInt64:
+                    {
+                        ulong tempValue = *(ulong*)VALUE.pValue;
+                        ulong tempMin = *(ulong*)MIN.pValue;
+                        ulong tempMax = *(ulong*)MAX.pValue;
+
+                        if (tempValue >= tempMin && tempValue <= tempMax)
+                            retValue = true;
+                        break;
+                    }
+                case Eclr.TypeCode.Single:
+                    {
+                        float tempValue = *(float*)VALUE.pValue;
+                        float tempMin = *(float*)MIN.pValue;
+                        float tempMax = *(float*)MAX.pValue;
+
+                        if (tempValue >= tempMin && tempValue <= tempMax)
+                            retValue = true;
+                        break;
+                    }
+                case Eclr.TypeCode.Double:
+                    {
+                        double tempValue = *(double*)VALUE.pValue;
+                        double tempMin = *(double*)MIN.pValue;
+                        double tempMax = *(double*)MAX.pValue;
+
+                        if (tempValue >= tempMin && tempValue <= tempMax)
+                            retValue = true;
+                        break;
+                    }
             }
 
             return retValue;

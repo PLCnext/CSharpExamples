@@ -14,7 +14,7 @@ using Iec61131.Engineering.Prototypes.Common;
 
 namespace ExampleLib
 {
-    // The attribute "Structure" is necessary to make the struct visible in the PCWorx Engineer
+    // The attribute "Structure" is necessary to make the struct visible in the PLCnext Engineer
     [Structure]
     public struct Position
     {

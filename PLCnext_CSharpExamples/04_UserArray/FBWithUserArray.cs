@@ -18,7 +18,7 @@ namespace ExampleLib
 {
     // The IecArray must be defined as a struct with a fixed size.
     // The array definition MUST have following Attributes:
-    // 1. Array (Actually only one-dimensional arrays are supported by the PCWorx Engineer)
+    // 1. Array (Actually only one-dimensional arrays are supported by the PLCnext Engineer)
     // 2. ArrayDimension
     // 3. DataType to define the data type of the array elements
     [Array(1), ArrayDimension(0, ArrayProperties.LowerBound, ArrayProperties.UpperBound), DataType("DINT")]

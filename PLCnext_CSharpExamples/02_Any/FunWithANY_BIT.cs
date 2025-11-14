@@ -9,12 +9,9 @@
 
 using Iec61131.Engineering.Prototypes.Common;
 using Iec61131.Engineering.Prototypes.Methods;
-using Iec61131.Engineering.Prototypes.Pragmas;
 using Iec61131.Engineering.Prototypes.Types;
 using Iec61131.Engineering.Prototypes.Variables;
-using System;
 using System.Iec61131Lib;
-using System.Runtime.InteropServices;
 
 namespace ExampleLib
 {
@@ -40,29 +37,45 @@ namespace ExampleLib
             Eclr.TypeCode code = (Eclr.TypeCode)Eclr.TypeInfo.GetTypeCode(VALUE.pRuntimeTypeHandle);
 
             // type dependent action
-            if (code == Eclr.TypeCode.Int16)    // short (2 bytes)
+            switch (code)
             {
-                short tempValue = *((short*)VALUE.pValue);
-                retValue = (ulong)tempValue;
-            }
-            else if (code == Eclr.TypeCode.UInt16)  // unsigned short (2 bytes)
-            {
-                ushort tempValue = *((ushort*)VALUE.pValue);
-                retValue = (ulong)tempValue;
-            }
-            else if (code == Eclr.TypeCode.Int32)   // int (4 Bytes)
-            {
-                int tempValue = *((int*)VALUE.pValue);
-                retValue = (ulong)tempValue;
-            }
-            else if (code == Eclr.TypeCode.UInt32)  // unsigned (4 Bytes)
-            {
-                uint tempValue = *((uint*)VALUE.pValue);
-                retValue = (ulong)tempValue;
-            }
-            else
-            {
-                // ...
+                case Eclr.TypeCode.Boolean:
+                    {
+                        bool tempValue = *(bool*)VALUE.pValue;
+                        if (tempValue)
+                        {
+                            retValue = 1;
+                        }
+                        else
+                        {
+                            retValue = 0;
+                        }
+                        break;
+                    }
+                case Eclr.TypeCode.Byte:
+                    {
+                        byte tempValue = *(byte*)VALUE.pValue;
+                        retValue = tempValue;
+                        break;
+                    }
+                case Eclr.TypeCode.UInt16:
+                    {
+                        ushort tempValue = *(ushort*)VALUE.pValue;
+                        retValue = tempValue;
+                        break;
+                    }
+                case Eclr.TypeCode.UInt32:
+                    {
+                        uint tempValue = *(uint*)VALUE.pValue;
+                        retValue = tempValue;
+                        break;
+                    }
+                case Eclr.TypeCode.UInt64:
+                    {
+                        ulong tempValue = *(ulong*)VALUE.pValue;
+                        retValue = tempValue;
+                        break;
+                    }
             }
 
             return retValue;
